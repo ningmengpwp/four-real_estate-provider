@@ -236,4 +236,16 @@ public class ZxhServiceImpl implements ZxhService {
         Huiji huiji = zxhdao.selectXiuId(id);
         return huiji;
     }
+
+    @Override
+    public Huirenshen selectQueRen(Integer id) {
+        Huirenshen huirenshen = zxhdao.selectQueRen(id);
+        return huirenshen;
+    }
+
+    @Override
+    public String updateZhuYuanId(Huiji huiji) {
+        System.err.println(huiji);
+        return null;
+    }
 }

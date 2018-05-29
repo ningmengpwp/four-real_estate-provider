@@ -76,4 +76,8 @@ public interface ZxhService {
 
     Huiji selectXiuId(Integer id);
 
+    Huirenshen selectQueRen(Integer id);
+
+    String updateZhuYuanId(Huiji huiji);
+
 }

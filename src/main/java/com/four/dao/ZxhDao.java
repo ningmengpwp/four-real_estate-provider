@@ -132,4 +132,7 @@ public interface ZxhDao {
 
     @Select("SELECT * FROM HUIJI A,HUIJIN B,HUIZCXZ C WHERE A.HUIJINID=B.HUIJINID AND A.HUIJIZHUCEXZ=C.HUIZCXZID AND A.HUIJIID=#{id}")
     Huiji selectXiuId(@Param("id") Integer id);
+
+    @Select("SELECT * FROM HUIRENSHEN H WHERE H.HUIRENSHENZH=2")
+    Huirenshen selectQueRen(@Param("id") Integer id);
 }
