@@ -6,9 +6,9 @@ public class Jine implements Serializable{
     private static final long serialVersionUID = -3879444567988439499L;
     private Integer id;
 
-    private String jinid;
+    private Integer jinid;
 
-    private String jinnumber;
+    private Integer jinnumber;
 
     private String jindis;
 
@@ -16,28 +16,40 @@ public class Jine implements Serializable{
 
     private String jinip;
 
+    @Override
+    public String toString() {
+        return "Jine{" +
+                "id=" + id +
+                ", jinid=" + jinid +
+                ", jinnumber=" + jinnumber +
+                ", jindis='" + jindis + '\'' +
+                ", jindate='" + jindate + '\'' +
+                ", jinip='" + jinip + '\'' +
+                '}';
+    }
+
+    public Integer getJinid() {
+        return jinid;
+    }
+
+    public void setJinid(Integer jinid) {
+        this.jinid = jinid;
+    }
+
+    public Integer getJinnumber() {
+        return jinnumber;
+    }
+
+    public void setJinnumber(Integer jinnumber) {
+        this.jinnumber = jinnumber;
+    }
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getJinid() {
-        return jinid;
-    }
-
-    public void setJinid(String jinid) {
-        this.jinid = jinid == null ? null : jinid.trim();
-    }
-
-    public String getJinnumber() {
-        return jinnumber;
-    }
-
-    public void setJinnumber(String jinnumber) {
-        this.jinnumber = jinnumber == null ? null : jinnumber.trim();
     }
 
     public String getJindis() {

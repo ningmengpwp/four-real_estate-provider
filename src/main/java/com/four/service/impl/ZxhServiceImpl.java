@@ -6,7 +6,13 @@ import com.four.mysqlzc.ReadOnlyConnection;
 import com.four.service.ZxhService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -245,7 +251,37 @@ public class ZxhServiceImpl implements ZxhService {
 
     @Override
     public String updateZhuYuanId(Huiji huiji) {
-        System.err.println(huiji);
-        return null;
+        zxhdao.updateZhuYuanId(huiji);
+        return "success";
+    }
+
+    @Override
+    public String updateRenZhenId(Huirenshen huirenshen) {
+        System.err.println(huirenshen);
+        zxhdao.updateRenZhenId(huirenshen);
+        return "success";
+    }
+
+    @Override
+    public String updateRenQuanId(Huirenshen huirenshen) {
+        System.err.println(huirenshen);
+        zxhdao.updateRenQuanId(huirenshen);
+        return "success";
+    }
+
+    @Override
+    public String updateJineId(Huijin huijin, String addr) {
+        SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.err.println(huijin);
+        zxhdao.updateJineId(huijin);
+        Jine jine = new Jine();
+        jine.setJinnumber(huijin.getHuijinmoneysl());
+        jine.setJindate(sim.format(new Date()));
+        jine.setJinid(huijin.getHuijinid());
+        jine.setJinip(addr);
+        jine.setJindis(huijin.getHuijinshuiming());
+        System.err.println("aaaaaaaa"+jine);
+        zxhdao.insertJine(jine);
+        return "success";
     }
 }

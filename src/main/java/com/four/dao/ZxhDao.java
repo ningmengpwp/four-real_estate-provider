@@ -135,4 +135,24 @@ public interface ZxhDao {
 
     @Select("SELECT * FROM HUIRENSHEN H WHERE H.HUIRENSHENZH=2")
     Huirenshen selectQueRen(@Param("id") Integer id);
+
+    @Update("UPDATE HUIJI SET HUIJIZHANGHAO=#{hu.huijizhanghao},HUIJIPASS=#{hu.huijipass},HUIJILIANXIREN=#{hu.huijilianxiren},HUIJIYOUXIANG=#{hu.huijiyouxiang},HUIJISHIFOUBYX=#{hu.huijishifoubyx},HUIJISHIFOUBSJ=#{hu.huijishifoubsj}," +
+            "HUIJISHOUJI=#{hu.huijishouji},HUIJITOUXIANG=#{hu.huijitouxiang},HUIJIDIANHUA=#{hu.huijidianhua},HUIJIQQ=#{hu.huijiqq},HUIJIQUYU=#{hu.huijiquyu},HUIJINID=#{hu.huijinid},HUIDENGID=#{hu.huidengid},HUISYSXL=#{hu.huisysxl},HUIQUANXIAN=#{hu.huiquanxian}," +
+            "HUIDJDQDATE=#{hu.huidjdqdate},HUIGUANID=#{hu.huiguanid},HUIGUANTUIPAI=#{hu.huiguantuipai},HUIGUANDIAN=#{hu.huiguandian},DPGUANJIANC=#{hu.dpguanjianc},DPMIAOSHU=#{hu.dpmiaoshu},HUIZHI=#{hu.huizhi},HUISICHENG=#{hu.huisicheng},HUISIDIS=#{hu.huisidis}," +
+            "HUIJIQUYUDF=#{hu.huijiquyudf} WHERE HUIJIID=#{hu.huijiid}")
+    void updateZhuYuanId(@Param("hu") Huiji huiji);
+
+    @Update("UPDATE HUIRENSHEN SET HUIRENSHENSFZ=#{huirenshensfz},HUIRENSHENNAME=#{huirenshenname},HUIRENSHENSFZH=#{huirenshensfzh},HUIRENSHENIMGZHNG=#{huirenshenimgzhng}," +
+            "HUIRENSHENIMGFAN=#{huirenshenimgfan} WHERE HUIRENSHENID=#{huirenshenid}")
+    void updateRenZhenId(Huirenshen huirenshen);
+
+    @Update("UPDATE HUIRENSHEN SET HUIRENSHEN=#{huirenshen},HUIRENMING=#{huirenming},HUIRENNUMBER=#{huirennumber},HUIRENPHOTO=#{huirenphoto},HUIRENJJYY=#{huirenjjyy}" +
+            " WHERE HUIRENSHENID=#{huirenshenid}")
+    void updateRenQuanId(Huirenshen huirenshen);
+
+    @Update("update huijin set huijinkymoney=${huijinkymoney}+${huijinmoneysl} where huijinid=#{huijinid}")
+    void updateJineId(Huijin huijin);
+
+    @Insert("insert into t_jine(jinid,jinnumber,jindis,jindate,jinip) VALUES(#{in.jinid},#{in.jinnumber},#{in.jindis},#{in.jindate},#{in.jinip})")
+    void insertJine(@Param("in") Jine jine);
 }

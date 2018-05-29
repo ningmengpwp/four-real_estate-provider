@@ -8,11 +8,40 @@ public class Huijin implements Serializable {
     //会员管理金钱管理
     private Integer huijinid;
     private String huijinzhanghao;
-    private String huijinkymoney;
+    private Integer huijinkymoney;
     private String huijinshuiming;
-    private String huijinmoneysl;
+    private Integer huijinmoneysl;
     private String huijindate;
     private String huijinip;
+
+    @Override
+    public String toString() {
+        return "Huijin{" +
+                "huijinid=" + huijinid +
+                ", huijinzhanghao='" + huijinzhanghao + '\'' +
+                ", huijinkymoney=" + huijinkymoney +
+                ", huijinshuiming='" + huijinshuiming + '\'' +
+                ", huijinmoneysl=" + huijinmoneysl +
+                ", huijindate='" + huijindate + '\'' +
+                ", huijinip='" + huijinip + '\'' +
+                '}';
+    }
+
+    public Integer getHuijinkymoney() {
+        return huijinkymoney;
+    }
+
+    public void setHuijinkymoney(Integer huijinkymoney) {
+        this.huijinkymoney = huijinkymoney;
+    }
+
+    public Integer getHuijinmoneysl() {
+        return huijinmoneysl;
+    }
+
+    public void setHuijinmoneysl(Integer huijinmoneysl) {
+        this.huijinmoneysl = huijinmoneysl;
+    }
 
     public Integer getHuijinid() {
         return huijinid;
@@ -30,28 +59,12 @@ public class Huijin implements Serializable {
         this.huijinzhanghao = huijinzhanghao;
     }
 
-    public String getHuijinkymoney() {
-        return huijinkymoney;
-    }
-
-    public void setHuijinkymoney(String huijinkymoney) {
-        this.huijinkymoney = huijinkymoney;
-    }
-
     public String getHuijinshuiming() {
         return huijinshuiming;
     }
 
     public void setHuijinshuiming(String huijinshuiming) {
         this.huijinshuiming = huijinshuiming;
-    }
-
-    public String getHuijinmoneysl() {
-        return huijinmoneysl;
-    }
-
-    public void setHuijinmoneysl(String huijinmoneysl) {
-        this.huijinmoneysl = huijinmoneysl;
     }
 
     public String getHuijindate() {
@@ -71,16 +84,4 @@ public class Huijin implements Serializable {
     }
 
 
-    @Override
-    public String toString() {
-        return "Huijin{" +
-                "huijinid=" + huijinid +
-                ", huijinzhanghao='" + huijinzhanghao + '\'' +
-                ", huijinkymoney='" + huijinkymoney + '\'' +
-                ", huijinshuiming='" + huijinshuiming + '\'' +
-                ", huijinmoneysl='" + huijinmoneysl + '\'' +
-                ", huijindate='" + huijindate + '\'' +
-                ", huijinip='" + huijinip + '\'' +
-                '}';
-    }
 }

@@ -80,4 +80,10 @@ public interface ZxhService {
 
     String updateZhuYuanId(Huiji huiji);
 
+    String updateRenZhenId(Huirenshen huirenshen);
+
+    String updateRenQuanId(Huirenshen huirenshen);
+
+    String updateJineId(Huijin huijin, String addr);
+
 }
