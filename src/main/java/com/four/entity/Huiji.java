@@ -3,7 +3,7 @@ package com.four.entity;
 import java.io.Serializable;
 
 public class Huiji implements Serializable{
-    private static final long serialVersionUID = -7096173997585690197L;
+    private static final long serialVersionUID = -1256632838431152170L;
 
 //会员管理基础资料
 
@@ -19,8 +19,7 @@ public class Huiji implements Serializable{
     private String huijidianhua;
     private String huijiqq;
     private String huijiquyu;
-    private String huijiquyudf;
-    private String huijitouxiang;
+    private String uijitouxiang;
     private String huijizhucexz;
     private String huijierweima;
     private String huijimendiandz;
@@ -29,10 +28,76 @@ public class Huiji implements Serializable{
     private String huijidituzb;
     private String huijidpgjc;
     private Integer huijinid;
+    private Integer huidengid;
     private String huisysxl;
     private String huiquanxian;
     private String huidjdqdate;
+    private Integer huiguanid;
+    private Integer huiguantuipai;
+    private Integer huiguandian;
+    private String dpguanjianc;
+    private String dpmiaoshu;
+    private String huizhi;
+    private String huisicheng;
+    private String huisidis;
+    private String huijiquyudf;
 
+    @Override
+    public String toString() {
+        return "Huiji{" +
+                "huijiid=" + huijiid +
+                ", huijizhanghao='" + huijizhanghao + '\'' +
+                ", huijipass='" + huijipass + '\'' +
+                ", huijilianxiren='" + huijilianxiren + '\'' +
+                ", huijiyouxiang='" + huijiyouxiang + '\'' +
+                ", huijinicheng='" + huijinicheng + '\'' +
+                ", huijishifoubyx='" + huijishifoubyx + '\'' +
+                ", huijishifoubsj='" + huijishifoubsj + '\'' +
+                ", huijishouji='" + huijishouji + '\'' +
+                ", huijidianhua='" + huijidianhua + '\'' +
+                ", huijiqq='" + huijiqq + '\'' +
+                ", huijiquyu='" + huijiquyu + '\'' +
+                ", uijitouxiang='" + uijitouxiang + '\'' +
+                ", huijizhucexz='" + huijizhucexz + '\'' +
+                ", huijierweima='" + huijierweima + '\'' +
+                ", huijimendiandz='" + huijimendiandz + '\'' +
+                ", huijizhongjiemc='" + huijizhongjiemc + '\'' +
+                ", huijizwojsgc='" + huijizwojsgc + '\'' +
+                ", huijidituzb='" + huijidituzb + '\'' +
+                ", huijidpgjc='" + huijidpgjc + '\'' +
+                ", huijinid=" + huijinid +
+                ", huidengid=" + huidengid +
+                ", huisysxl='" + huisysxl + '\'' +
+                ", huiquanxian='" + huiquanxian + '\'' +
+                ", huidjdqdate='" + huidjdqdate + '\'' +
+                ", huiguanid=" + huiguanid +
+                ", huiguantuipai=" + huiguantuipai +
+                ", huiguandian=" + huiguandian +
+                ", dpguanjianc='" + dpguanjianc + '\'' +
+                ", dpmiaoshu='" + dpmiaoshu + '\'' +
+                ", huizhi='" + huizhi + '\'' +
+                ", huisicheng='" + huisicheng + '\'' +
+                ", huisidis='" + huisidis + '\'' +
+                ", huijiquyudf='" + huijiquyudf + '\'' +
+                ", huizcxzid=" + huizcxzid +
+                ", huizcxzname='" + huizcxzname + '\'' +
+                ", huijinzhanghao='" + huijinzhanghao + '\'' +
+                ", huijinkymoney='" + huijinkymoney + '\'' +
+                ", huijinshuiming='" + huijinshuiming + '\'' +
+                ", huijinmoneysl='" + huijinmoneysl + '\'' +
+                ", huijindate='" + huijindate + '\'' +
+                ", huijinip='" + huijinip + '\'' +
+                ", huidengname='" + huidengname + '\'' +
+                '}';
+    }
+
+    public String getHuijiquyudf() {
+        return huijiquyudf;
+    }
+
+    public void setHuijiquyudf(String huijiquyudf) {
+        this.huijiquyudf = huijiquyudf;
+    }
 
     //会员管理注册性质
     private Integer huizcxzid;
@@ -47,12 +112,182 @@ public class Huiji implements Serializable{
     private String huijindate;
     private String huijinip;
 
-    //会员管理会员等级表
-    private Integer huidengid;
     private String huidengname;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public Integer getHuizcxzid() {
+        return huizcxzid;
+    }
+
+    public void setHuizcxzid(Integer huizcxzid) {
+        this.huizcxzid = huizcxzid;
+    }
+
+    public String getHuizcxzname() {
+        return huizcxzname;
+    }
+
+    public void setHuizcxzname(String huizcxzname) {
+        this.huizcxzname = huizcxzname;
+    }
+
+    public String getHuijinzhanghao() {
+        return huijinzhanghao;
+    }
+
+    public void setHuijinzhanghao(String huijinzhanghao) {
+        this.huijinzhanghao = huijinzhanghao;
+    }
+
+    public String getHuijinkymoney() {
+        return huijinkymoney;
+    }
+
+    public void setHuijinkymoney(String huijinkymoney) {
+        this.huijinkymoney = huijinkymoney;
+    }
+
+    public String getHuijinshuiming() {
+        return huijinshuiming;
+    }
+
+    public void setHuijinshuiming(String huijinshuiming) {
+        this.huijinshuiming = huijinshuiming;
+    }
+
+    public String getHuijinmoneysl() {
+        return huijinmoneysl;
+    }
+
+    public void setHuijinmoneysl(String huijinmoneysl) {
+        this.huijinmoneysl = huijinmoneysl;
+    }
+
+    public String getHuijindate() {
+        return huijindate;
+    }
+
+    public void setHuijindate(String huijindate) {
+        this.huijindate = huijindate;
+    }
+
+    public String getHuijinip() {
+        return huijinip;
+    }
+
+    public void setHuijinip(String huijinip) {
+        this.huijinip = huijinip;
+    }
+
+    public String getHuidengname() {
+        return huidengname;
+    }
+
+    public void setHuidengname(String huidengname) {
+        this.huidengname = huidengname;
+    }
+
+    public String getHuisidis() {
+        return huisidis;
+    }
+
+    public void setHuisidis(String huisidis) {
+        this.huisidis = huisidis;
+    }
+
+    public String getHuizhi() {
+        return huizhi;
+    }
+
+    public void setHuizhi(String huizhi) {
+        this.huizhi = huizhi;
+    }
+
+    public String getHuisicheng() {
+        return huisicheng;
+    }
+
+    public void setHuisicheng(String huisicheng) {
+        this.huisicheng = huisicheng;
+    }
+
+    public Integer getHuidengid() {
+        return huidengid;
+    }
+
+    public void setHuidengid(Integer huidengid) {
+        this.huidengid = huidengid;
+    }
+
+    public String getHuisysxl() {
+        return huisysxl;
+    }
+
+    public void setHuisysxl(String huisysxl) {
+        this.huisysxl = huisysxl;
+    }
+
+    public String getHuiquanxian() {
+        return huiquanxian;
+    }
+
+    public void setHuiquanxian(String huiquanxian) {
+        this.huiquanxian = huiquanxian;
+    }
+
+    public String getHuidjdqdate() {
+        return huidjdqdate;
+    }
+
+    public void setHuidjdqdate(String huidjdqdate) {
+        this.huidjdqdate = huidjdqdate;
+    }
+
+    public Integer getHuiguanid() {
+        return huiguanid;
+    }
+
+    public void setHuiguanid(Integer huiguanid) {
+        this.huiguanid = huiguanid;
+    }
+
+    public Integer getHuiguantuipai() {
+        return huiguantuipai;
+    }
+
+    public void setHuiguantuipai(Integer huiguantuipai) {
+        this.huiguantuipai = huiguantuipai;
+    }
+
+    public Integer getHuiguandian() {
+        return huiguandian;
+    }
+
+    public void setHuiguandian(Integer huiguandian) {
+        this.huiguandian = huiguandian;
+    }
+
+    public String getDpguanjianc() {
+        return dpguanjianc;
+    }
+
+    public void setDpguanjianc(String dpguanjianc) {
+        this.dpguanjianc = dpguanjianc;
+    }
+
+    public String getDpmiaoshu() {
+        return dpmiaoshu;
+    }
+
+    public void setDpmiaoshu(String dpmiaoshu) {
+        this.dpmiaoshu = dpmiaoshu;
+    }
+
+    public Integer getHuijinid() {
+        return huijinid;
+    }
+
+    public void setHuijinid(Integer huijinid) {
+        this.huijinid = huijinid;
     }
 
     public Integer getHuijiid() {
@@ -151,20 +386,12 @@ public class Huiji implements Serializable{
         this.huijiquyu = huijiquyu;
     }
 
-    public String getHuijiquyudf() {
-        return huijiquyudf;
+    public String getUijitouxiang() {
+        return uijitouxiang;
     }
 
-    public void setHuijiquyudf(String huijiquyudf) {
-        this.huijiquyudf = huijiquyudf;
-    }
-
-    public String getHuijitouxiang() {
-        return huijitouxiang;
-    }
-
-    public void setHuijitouxiang(String huijitouxiang) {
-        this.huijitouxiang = huijitouxiang;
+    public void setUijitouxiang(String uijitouxiang) {
+        this.uijitouxiang = uijitouxiang;
     }
 
     public String getHuijizhucexz() {
@@ -223,156 +450,4 @@ public class Huiji implements Serializable{
         this.huijidpgjc = huijidpgjc;
     }
 
-    public Integer getHuijinid() {
-        return huijinid;
-    }
-
-    public void setHuijinid(Integer huijinid) {
-        this.huijinid = huijinid;
-    }
-
-    public String getHuisysxl() {
-        return huisysxl;
-    }
-
-    public void setHuisysxl(String huisysxl) {
-        this.huisysxl = huisysxl;
-    }
-
-    public String getHuiquanxian() {
-        return huiquanxian;
-    }
-
-    public void setHuiquanxian(String huiquanxian) {
-        this.huiquanxian = huiquanxian;
-    }
-
-    public String getHuidjdqdate() {
-        return huidjdqdate;
-    }
-
-    public void setHuidjdqdate(String huidjdqdate) {
-        this.huidjdqdate = huidjdqdate;
-    }
-
-    public Integer getHuizcxzid() {
-        return huizcxzid;
-    }
-
-    public void setHuizcxzid(Integer huizcxzid) {
-        this.huizcxzid = huizcxzid;
-    }
-
-    public String getHuizcxzname() {
-        return huizcxzname;
-    }
-
-    public void setHuizcxzname(String huizcxzname) {
-        this.huizcxzname = huizcxzname;
-    }
-
-    public String getHuijinzhanghao() {
-        return huijinzhanghao;
-    }
-
-    public void setHuijinzhanghao(String huijinzhanghao) {
-        this.huijinzhanghao = huijinzhanghao;
-    }
-
-    public String getHuijinkymoney() {
-        return huijinkymoney;
-    }
-
-    public void setHuijinkymoney(String huijinkymoney) {
-        this.huijinkymoney = huijinkymoney;
-    }
-
-    public String getHuijinshuiming() {
-        return huijinshuiming;
-    }
-
-    public void setHuijinshuiming(String huijinshuiming) {
-        this.huijinshuiming = huijinshuiming;
-    }
-
-    public String getHuijinmoneysl() {
-        return huijinmoneysl;
-    }
-
-    public void setHuijinmoneysl(String huijinmoneysl) {
-        this.huijinmoneysl = huijinmoneysl;
-    }
-
-    public String getHuijindate() {
-        return huijindate;
-    }
-
-    public void setHuijindate(String huijindate) {
-        this.huijindate = huijindate;
-    }
-
-    public String getHuijinip() {
-        return huijinip;
-    }
-
-    public void setHuijinip(String huijinip) {
-        this.huijinip = huijinip;
-    }
-
-    public Integer getHuidengid() {
-        return huidengid;
-    }
-
-    public void setHuidengid(Integer huidengid) {
-        this.huidengid = huidengid;
-    }
-
-    public String getHuidengname() {
-        return huidengname;
-    }
-
-    public void setHuidengname(String huidengname) {
-        this.huidengname = huidengname;
-    }
-
-    @Override
-    public String toString() {
-        return "Huiji{" +
-                "huijiid=" + huijiid +
-                ", huijizhanghao='" + huijizhanghao + '\'' +
-                ", huijipass='" + huijipass + '\'' +
-                ", huijilianxiren='" + huijilianxiren + '\'' +
-                ", huijiyouxiang='" + huijiyouxiang + '\'' +
-                ", huijinicheng='" + huijinicheng + '\'' +
-                ", huijishifoubyx='" + huijishifoubyx + '\'' +
-                ", huijishifoubsj='" + huijishifoubsj + '\'' +
-                ", huijishouji='" + huijishouji + '\'' +
-                ", huijidianhua='" + huijidianhua + '\'' +
-                ", huijiqq='" + huijiqq + '\'' +
-                ", huijiquyu='" + huijiquyu + '\'' +
-                ", huijiquyudf='" + huijiquyudf + '\'' +
-                ", huijitouxiang='" + huijitouxiang + '\'' +
-                ", huijizhucexz='" + huijizhucexz + '\'' +
-                ", huijierweima='" + huijierweima + '\'' +
-                ", huijimendiandz='" + huijimendiandz + '\'' +
-                ", huijizhongjiemc='" + huijizhongjiemc + '\'' +
-                ", huijizwojsgc='" + huijizwojsgc + '\'' +
-                ", huijidituzb='" + huijidituzb + '\'' +
-                ", huijidpgjc='" + huijidpgjc + '\'' +
-                ", huijinid=" + huijinid +
-                ", huisysxl='" + huisysxl + '\'' +
-                ", huiquanxian='" + huiquanxian + '\'' +
-                ", huidjdqdate='" + huidjdqdate + '\'' +
-                ", huizcxzid=" + huizcxzid +
-                ", huizcxzname='" + huizcxzname + '\'' +
-                ", huijinzhanghao='" + huijinzhanghao + '\'' +
-                ", huijinkymoney='" + huijinkymoney + '\'' +
-                ", huijinshuiming='" + huijinshuiming + '\'' +
-                ", huijinmoneysl='" + huijinmoneysl + '\'' +
-                ", huijindate='" + huijindate + '\'' +
-                ", huijinip='" + huijinip + '\'' +
-                ", huidengid=" + huidengid +
-                ", huidengname='" + huidengname + '\'' +
-                '}';
-    }
 }

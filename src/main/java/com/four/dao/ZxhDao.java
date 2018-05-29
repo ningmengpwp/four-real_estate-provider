@@ -111,4 +111,25 @@ public interface ZxhDao {
 
     @Select("SELECT * FROM T_HOUSING H,T_APARTMENT A WHERE H.WUID=A.ID")
     List<Map<String,Object>> selectFangyuan();
+
+    @Select("SELECT * FROM T_APARTMENT A WHERE A.XIAOZU LIKE '%1%'")
+    List<Apartment> queryApart();
+
+    @Select("SELECT * FROM HUIJI A,HUIJIN B,HUIZCXZ C WHERE A.HUIJINID=B.HUIJINID AND A.HUIJIZHUCEXZ=C.HUIZCXZID AND C.HUIZCXZID=6")
+    List<Map<String,Object>> queryZhuang();
+
+    @Delete("DELETE FROM HUIJIN WHERE HUIJIID in (${ids})")
+    void deleteZhuangIdAll(@Param("ids") String ids);
+
+    @Select("SELECT * FROM HUIJI H WHERE H.HUIJIID=#{id}")
+    Huiji selectZhuId(@Param("id") String id);
+
+    @Delete("DELETE FROM HUIJIN WHERE HUIJINID=#{huijinid}")
+    void deleteZhuId(@Param("huijinid") Integer huijinid);
+
+    @Select("SELECT * FROM HUIQUAN WHERE HUILEI LIKE '%6%'")
+    List<Huiquan> selectQuan();
+
+    @Select("SELECT * FROM HUIJI A,HUIJIN B,HUIZCXZ C WHERE A.HUIJINID=B.HUIJINID AND A.HUIJIZHUCEXZ=C.HUIZCXZID AND A.HUIJIID=#{id}")
+    Huiji selectXiuId(@Param("id") Integer id);
 }

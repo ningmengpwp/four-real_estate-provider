@@ -42,7 +42,6 @@ public class ZxhServiceImpl implements ZxhService {
 
     @Override
     public String insertMem(Member member) {
-        System.err.println(member);
         zxhdao.insertMem(member);
         return "success";
     }
@@ -201,5 +200,40 @@ public class ZxhServiceImpl implements ZxhService {
     public String updateDownChuId(String ids) {
         zxhdao.updateDownChuId(ids);
         return "success";
+    }
+
+    @Override
+    public List<Apartment> queryApart() {
+        List<Apartment> list = zxhdao.queryApart();
+        return list;
+    }
+
+    @Override
+    public List<Map<String, Object>> queryZhuang() {
+        List<Map<String, Object>> list = zxhdao.queryZhuang();
+        return list;
+    }
+
+    @Override
+    public String deleteZhuangIdAll(String ids) {
+        String[] id = ids.split(",");
+        for (int i=0;i<id.length;i++){
+            Huiji huiji = zxhdao.selectZhuId(id[i]);
+            zxhdao.deleteZhuId(huiji.getHuijinid());
+        }
+        zxhdao.deleteZhuangIdAll(ids);
+        return "success";
+    }
+
+    @Override
+    public List<Huiquan> selectQuan() {
+        List<Huiquan> list = zxhdao.selectQuan();
+        return list;
+    }
+
+    @Override
+    public Huiji selectXiuId(Integer id) {
+        Huiji huiji = zxhdao.selectXiuId(id);
+        return huiji;
     }
 }
