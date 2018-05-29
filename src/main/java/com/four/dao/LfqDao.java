@@ -83,4 +83,10 @@ public interface LfqDao {
 
     @Update("update huiji set  huijipass=#{huijipass}, huijilianxiren=#{huijilianxiren}, huijiyouxiang=#{huijiyouxiang}, huijinicheng=#{huijinicheng}, huijishifoubyx=#{huijishifoubyx}, huijishifoubsj=#{huijishifoubsj}, huijishouji=#{huijishouji}, huijidianhua=#{huijidianhua}, huijiqq=#{huijiqq}, huijiquyu=#{huijiquyu}, huijiquyudf=#{huijiquyudf}, huijitouxiang=#{huijitouxiang},huijierweima=#{huijierweima}, huijimendiandz=#{huijimendiandz}, huijizhongjiemc=#{huijizhongjiemc}, huijizwojsgc=#{huijizwojsgc}, huijidituzb=#{huijidituzb}, huijidpgjc=#{huijidpgjc}, huijinid=#{huijinid}, huisysxl=#{huisysxl}, huiquanxian=#{huiquanxian}, huidjdqdate=#{huidjdqdate},huidengid=#{huidengid} where huijiid=#{huijiid}")
     void updatesyhygai(Huiji hji);
+
+    @Select("select * from huirenzhuang b,huiji a where b.huirenid=a.huijiid and b.huirenid=#{id}")
+    Huirenzhuang queryhuiyuanrenzhneg(@Param("id") String id);
+
+    @Update("update huirenzhuang set huirenztai=#{huirenztai},huishenid=#{huishenid},huirenjjyy=#{huirenjjyy},huirenzsxm=#{huirenzsxm},huirensfzh=#{huirensfzh},huirensfzzm=#{huirensfzzm},huirensfzfm=#{huirensfzfm} where huirenid=#{huirenid}")
+    void updatexiugairz(Huirenzhuang rz);
 }

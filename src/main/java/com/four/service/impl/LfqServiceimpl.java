@@ -192,4 +192,14 @@ public class LfqServiceimpl implements LfqService{
 
          lfqDao.updatesyhygai(hjj);
     }
+
+    @Override
+    public Huirenzhuang queryhuiyuanrenzhneg(String id) {
+      return lfqDao.queryhuiyuanrenzhneg(id);
+    }
+
+    @Override
+    public void updatexiugairz(Huirenzhuang rz) {
+        lfqDao.updatexiugairz(rz);
+    }
 }
