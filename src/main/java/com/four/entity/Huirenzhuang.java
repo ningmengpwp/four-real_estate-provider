@@ -3,6 +3,7 @@ package com.four.entity;
 import java.io.Serializable;
 
 public class Huirenzhuang implements Serializable {
+
     private static final long serialVersionUID = 7000902882539153602L;
     //会员管理认证状态
     private Integer huirenid;
@@ -13,10 +14,14 @@ public class Huirenzhuang implements Serializable {
     private String huirensfzh;
     private String huirensfzzm;
     private String huirensfzfm;
+
     private String huijizhanghao;
+
+
     public Integer getHuirenid() {
         return huirenid;
     }
+
     public void setHuirenid(Integer huirenid) {
         this.huirenid = huirenid;
     }
@@ -84,6 +89,8 @@ public class Huirenzhuang implements Serializable {
     public void setHuijizhanghao(String huijizhanghao) {
         this.huijizhanghao = huijizhanghao;
     }
+
+    @Override
     public String toString() {
         return "Huirenzhuang{" +
                 "huirenid=" + huirenid +
