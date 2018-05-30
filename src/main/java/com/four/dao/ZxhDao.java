@@ -112,7 +112,7 @@ public interface ZxhDao {
     @Select("SELECT * FROM T_HOUSING H,T_APARTMENT A WHERE H.WUID=A.ID")
     List<Map<String,Object>> selectFangyuan();
 
-    @Select("SELECT * FROM T_APARTMENT A WHERE A.XIAOZU LIKE '%1%'")
+    @Select("SELECT * FROM T_APARTMENT A WHERE A.STATUSUP=1 AND A.XIAOZU LIKE '%1%'")
     List<Apartment> queryApart();
 
     @Select("SELECT * FROM HUIJI A,HUIJIN B,HUIZCXZ C WHERE A.HUIJINID=B.HUIJINID AND A.HUIJIZHUCEXZ=C.HUIZCXZID AND C.HUIZCXZID=6")
@@ -133,7 +133,7 @@ public interface ZxhDao {
     @Select("SELECT * FROM HUIJI A,HUIJIN B,HUIZCXZ C WHERE A.HUIJINID=B.HUIJINID AND A.HUIJIZHUCEXZ=C.HUIZCXZID AND A.HUIJIID=#{id}")
     Huiji selectXiuId(@Param("id") Integer id);
 
-    @Select("SELECT * FROM HUIRENSHEN H WHERE H.HUIRENSHENZH=2")
+    @Select("SELECT * FROM HUIRENSHEN H WHERE H.HUIRENSHENZH=#{id}")
     Huirenshen selectQueRen(@Param("id") Integer id);
 
     @Update("UPDATE HUIJI SET HUIJIZHANGHAO=#{hu.huijizhanghao},HUIJIPASS=#{hu.huijipass},HUIJILIANXIREN=#{hu.huijilianxiren},HUIJIYOUXIANG=#{hu.huijiyouxiang},HUIJISHIFOUBYX=#{hu.huijishifoubyx},HUIJISHIFOUBSJ=#{hu.huijishifoubsj}," +
@@ -155,4 +155,14 @@ public interface ZxhDao {
 
     @Insert("insert into t_jine(jinid,jinnumber,jindis,jindate,jinip) VALUES(#{in.jinid},#{in.jinnumber},#{in.jindis},#{in.jindate},#{in.jinip})")
     void insertJine(@Param("in") Jine jine);
+
+    @Select("<script>" +
+            "select j.*,h.huijinzhanghao as huijinzhanghao from t_jine j,huijin h " +
+            "<where>" +
+            "j.jinid=h.huijinid" +
+            "<if test='jindis!=null &&  !\"\".equals(jindis)'>and j.jindis like '%${jindis}%'</if>" +
+            "<if test='jinnumber!=null && !\"\".equals(jinnumber)'>and j.jinnumber like '%${jinnumber}%'</if>" +
+            "</where>" +
+            "</script>")
+    List<Map<String,Object>> queryzijin(@Param("jindis") String jindis,@Param("jinnumber") String jinnumber);
 }

@@ -257,14 +257,12 @@ public class ZxhServiceImpl implements ZxhService {
 
     @Override
     public String updateRenZhenId(Huirenshen huirenshen) {
-        System.err.println(huirenshen);
         zxhdao.updateRenZhenId(huirenshen);
         return "success";
     }
 
     @Override
     public String updateRenQuanId(Huirenshen huirenshen) {
-        System.err.println(huirenshen);
         zxhdao.updateRenQuanId(huirenshen);
         return "success";
     }
@@ -272,7 +270,6 @@ public class ZxhServiceImpl implements ZxhService {
     @Override
     public String updateJineId(Huijin huijin, String addr) {
         SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        System.err.println(huijin);
         zxhdao.updateJineId(huijin);
         Jine jine = new Jine();
         jine.setJinnumber(huijin.getHuijinmoneysl());
@@ -280,8 +277,13 @@ public class ZxhServiceImpl implements ZxhService {
         jine.setJinid(huijin.getHuijinid());
         jine.setJinip(addr);
         jine.setJindis(huijin.getHuijinshuiming());
-        System.err.println("aaaaaaaa"+jine);
         zxhdao.insertJine(jine);
         return "success";
+    }
+
+    @Override
+    public List<Map<String, Object>> queryzijin(String jindis, String jinnumber) {
+        List<Map<String, Object>> list = zxhdao.queryzijin(jindis,jinnumber);
+        return list;
     }
 }

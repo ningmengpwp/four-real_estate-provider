@@ -86,4 +86,6 @@ public interface ZxhService {
 
     String updateJineId(Huijin huijin, String addr);
 
+    List<Map<String,Object>> queryzijin(String jindis, String jinnumber);
+
 }
