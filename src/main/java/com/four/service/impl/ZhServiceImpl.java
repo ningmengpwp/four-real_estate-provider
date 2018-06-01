@@ -127,9 +127,49 @@ public class ZhServiceImpl implements ZhService {
     }
 
     @Override
-    public Huirenshen renzhengByIdjc(Integer huirenshenid) {
-        return zhdao.renzhengByIdjc(huirenshenid);
+    public List<Map<String, Object>> queryQuizu(Integer wuyeid, String biaoti) {
+        return zhdao.queryQuizu(wuyeid,biaoti);
     }
 
+    @Override
+    public void deletechuzuAll(String qiugouid){
+         zhdao.deletechuzuAll(qiugouid);
+    }
 
+    @Override
+    public void updateChuZuChuId(String qiugouid) {
+         zhdao.updateChuZuChuId(qiugouid);
+    }
+
+    @Override
+    public void updateDownChuId(String qiugouid) {
+        zhdao.updateDownChuId(qiugouid);
+    }
+
+    @Override
+    public List<Map<String, Object>> updateChuZu(Integer qiugouid) {
+        return zhdao.updateChuZu(qiugouid);
+    }
+
+    @Override
+    public void updateQiuZu(t_qiugougl quizu) {
+        zhdao.updateQiuZu(quizu);
+    }
+
+    @Override
+    public void updatechuJiaIds(Integer flag, Integer ids) {
+
+        zhdao.updatechuJiaIds(flag,ids);
+    }
+
+    @Override
+    public void updateShenHheChuIds(Integer flag, Integer ids) {
+        zhdao.updateShenHheChuIds(flag,ids);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryQuiGou(Integer wuyeid, String biaoti) {
+        return zhdao.queryQuiGou(wuyeid,biaoti);
+    }
+//**********求购房源信息***************************************************************************************************************
 }

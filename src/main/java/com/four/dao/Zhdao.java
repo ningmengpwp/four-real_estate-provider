@@ -65,17 +65,78 @@ public interface Zhdao {
 
     //***********建材中心信息**********************************************************************************************************
 
-     @Select("select m.huijinid as huijinid , m.huijindate as huijindate ,m.huijinip as huijinip,m.huijinkymoney as huijinkymoney,j.huijizhanghao as  huijizhanghao ,j.huijizhucexz as huijizhucexz ,j.huijinicheng as huijinicheng  from  huijin m, huiji j where m.huijinid=j.huijiid")
+     @Select("SELECT * FROM HUIJI A,HUIJIN B,HUIZCXZ C WHERE A.HUIJINID=B.HUIJINID AND A.HUIJIZHUCEXZ=C.HUIZCXZID AND C.HUIZCXZID=3")
      List<Map<String,Object>>  queryJianCai();
 
     @Delete("delete from huijin where id in(${ida}) ")
      void delallJIan(@Param("ida") String id);
 
-    @Select(" select *  from huirenshen  where  huirenshenid=#{huirenshenid}")
-    Huirenshen renzhengByIdjc(Integer huirenshenid);
+ //***********房源求租信息**********************************************************************************************************
+
+
+     @Select("<script>"+
+         "select * from t_qiugougl tq,t_apartment ap,t_fysh tf " +
+         "<where>" +
+         "tq.wuyeid=ap.id and " +
+         "tq.gouorzu=1 and " +
+         "tq.fyshid=tf.fyshztid " +
+         "<if test=' wuyeid !=null || \"\".equals(wuyeid) '>" +
+         "and tq.wuyeid=#{wuyeid}" +
+         "</if>" +
+         "<if test='biaoti !=null || \"\".equals(biaoti) '>" +
+         "and tq.biaoti like '%${biaoti}%'" +
+         "</if>" +
+         "</where>" +
+         "</script>")
+      List<Map<String,Object>> queryQuizu(@Param("wuyeid") Integer wuyeid, @Param("biaoti") String biaoti);
+
+      @Delete("DELETE FROM T_QIUGOUGL WHERE QIUGOUID IN (${ids})")
+      void deletechuzuAll(@Param("ids") String qiugouid);
+
+      @Update("UPDATE T_QIUGOUGL SET TUIJIAN=1 WHERE QIUGOUID IN (${id})")
+      void updateChuZuChuId(@Param("id") String qiugouid);
+
+      @Update("UPDATE T_QIUGOUGL SET TUIJIAN=2 WHERE QIUGOUID IN (${ids})")
+      void updateDownChuId(@Param("ids") String qiugouid);
+
+      @Select("select *  from t_qiugougl tq,t_apartment ap,t_fysh tf  where tq.wuyeid=ap.id  and tq.fyshid=tf.fyshztid and  tq.qiugouid=#{qiugouid}")
+      List<Map<String,Object>> updateChuZu(Integer qiugouid);
+
+      @Select("select * from t_area where pid=0")
+      String queryarea();
 
 
 
+     @Update(" update t_qiugougl set fyshid=#{fyshid},qiugouzdxh=#{qiugouzdxh},qiugoufbhy=#{qiugoufbhy}," +
+             "qiugoudate=#{qiugoudate},lianxiren=#{lianxiren},lianxihaoma=#{lianxihaoma}," +
+             "tuijian=#{tuijian},shangxiajia=#{shangxiajia},miaoshu=#{miaoshu},mianjiyaoqius=#{mianjiyaoqius},mianjiyaoqiue=#{mianjiyaoqiue}," +
+             "feiyongyusuans=#{feiyongyusuans},feiyongyusuane=#{feiyongyusuane},quyupid=#{quyupid},biaoti=#{biaoti},wuyeid=#{wuyeid} " +
+             "where qiugouid=#{qiugouid} ")
+     void updateQiuZu(t_qiugougl quizu);
+
+     @Update("UPDATE T_QIUGOUGL SET SHANGXIAJIA=#{flag} WHERE QIUGOUID IN (${ids})")
+     void updatechuJiaIds(@Param("flag") Integer flag, @Param("ids") Integer ids);
+
+     @Update("UPDATE T_QIUGOUGL SET FYSHID=#{flag} WHERE QIUGOUID IN (${ids})")
+     void updateShenHheChuIds(@Param("flag") Integer flag, @Param("ids") Integer ids);
+
+ //**********求购房源信息***************************************************************************************************************
+
+      @Select("<script>" +
+         "select * from t_qiugougl tq,t_apartment ap,t_fysh tf " +
+         "<where>" +
+         "tq.wuyeid=ap.id and " +
+         "tq.gouorzu=2 and " +
+         "tq.fyshid=tf.fyshztid " +
+         "<if test=' wuyeid !=null || \"\".equals(wuyeid) '>" +
+         "and tq.wuyeid=#{wuyeid}" +
+         "</if>" +
+         "<if test='biaoti !=null || \"\".equals(biaoti) '>" +
+         "and tq.biaoti like '%${biaoti}%'" +
+         "</if>" +
+         "</where>" +
+         "</script>")
+ List<Map<String,Object>> queryQuiGou(@Param("wuyeid") Integer wuyeid, @Param("biaoti") String biaoti);
 
 
 }

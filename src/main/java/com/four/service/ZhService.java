@@ -49,7 +49,29 @@ public interface ZhService {
 
     void delallJIan(String id);
 
-    Huirenshen renzhengByIdjc(Integer huirenshenid);
+    //***********房源求租信息**********************************************************************************************************
+
+    List<Map<String,Object>> queryQuizu(Integer wuyeid, String biaoti);
+
+    void deletechuzuAll(String qiugouid);
+
+    void updateChuZuChuId(String qiugouid);
+
+    void updateDownChuId(String qiugouid);
+
+    List<Map<String,Object>> updateChuZu(Integer qiugouid);
+
+    void updateQiuZu(t_qiugougl quizu);
+
+    void updatechuJiaIds(Integer flag, Integer ids);
+
+    void updateShenHheChuIds(Integer flag, Integer ids);
+
+//**********求购房源信息***************************************************************************************************************
+
+    List<Map<String,Object>> queryQuiGou(Integer wuyeid, String biaoti);
+
+
 
 
 
