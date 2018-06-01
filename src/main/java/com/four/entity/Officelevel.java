@@ -2,9 +2,9 @@ package com.four.entity;
 
 import java.io.Serializable;
 
-public class Pavenmenttype implements Serializable{
-    private static final long serialVersionUID = 5366445949399844072L;
-    //铺面类型
+public class Officelevel implements Serializable{
+    private static final long serialVersionUID = 6551786590068288503L;
+    //写字楼级别
     private Integer id;
     private String name;
     private Integer xuhao;
@@ -44,7 +44,7 @@ public class Pavenmenttype implements Serializable{
 
     @Override
     public String toString() {
-        return "Pavenmenttype{" +
+        return "Officelevel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", xuhao='" + xuhao + '\'' +
