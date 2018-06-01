@@ -56,7 +56,7 @@ public interface ZxhService {
 
     List<Map<String,Object>> selectShenZiXun();
 
-    List<Map<String,Object>> selectFangyuan();
+    List<Map<String,Object>> selectFangyuan(Integer auditstatus);
 
     String deleteYuanId(Integer id);
 
@@ -86,6 +86,20 @@ public interface ZxhService {
 
     String updateJineId(Huijin huijin, String addr);
 
-    List<Map<String,Object>> queryzijin(String jindis, String jinnumber);
+    List<Map<String,Object>> queryzijin(String jindis);
+
+    String deletezijin(String id);
+
+    String updateFangListIds(Integer flag, String ids);
+
+    String updateFangJiaIds(Integer flag, Integer ids);
+
+    List<Huiji> queryHuijiDate();
+
+    Huiji selectRenMingId(Integer id);
+
+    Apartment selectTypeLeid(Integer id);
+
+    String insertFangChuShou(Housing housing);
 
 }

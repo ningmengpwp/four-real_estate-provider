@@ -89,4 +89,16 @@ public interface LfqDao {
 
     @Update("update huirenzhuang set huirenztai=#{huirenztai},huishenid=#{huishenid},huirenjjyy=#{huirenjjyy},huirenzsxm=#{huirenzsxm},huirensfzh=#{huirensfzh},huirensfzzm=#{huirensfzzm},huirensfzfm=#{huirensfzfm} where huirenid=#{huirenid}")
     void updatexiugairz(Huirenzhuang rz);
+    @Select("select a.yuanname ,s.weituoid,s.fangyuandz ,s.fymianji ,s.lianxiren, s.phone ,s.fabutime ,s.qwjiage,s.weituotype from t_sellzu s,t_apartment a where s.wuyeid=a.id ")
+    List<t_sellzu> queryWTMZ();
+    @Delete("delete from t_sellzu where weituoid = #{ids}")
+    void deleteMZ(@Param("ids")String ids);
+
+    @Select("select * from t_esfjgzs")
+    List<Esfjgzs> queryshoukuan();
+
+    @Select("select q.mianjiyaoqiu,z.zhaofangid,z.weituotype,z.xiwangquyu,z.phone,z.fabutime from t_zhaofang z,t_qiugougl q where z.zhaofangid=q.qiugouid")
+    List<Map<String, Object>> queryWTZF();
+    @Delete("delete from t_zhaofang where zhaofangid=#{idse}")
+    void deleteZF(@Param("idse")String idse);
 }

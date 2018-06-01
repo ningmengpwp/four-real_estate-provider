@@ -2,15 +2,10 @@ package com.four.service.impl;
 
 import com.four.dao.ZxhDao;
 import com.four.entity.*;
-import com.four.mysqlzc.ReadOnlyConnection;
 import com.four.service.ZxhService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -179,8 +174,8 @@ public class ZxhServiceImpl implements ZxhService {
     }
 
     @Override
-    public List<Map<String, Object>> selectFangyuan() {
-        List<Map<String, Object>> list = zxhdao.selectFangyuan();
+    public List<Map<String, Object>> selectFangyuan(Integer auditstatus) {
+        List<Map<String, Object>> list = zxhdao.selectFangyuan(auditstatus);
         return list;
     }
 
@@ -282,8 +277,51 @@ public class ZxhServiceImpl implements ZxhService {
     }
 
     @Override
-    public List<Map<String, Object>> queryzijin(String jindis, String jinnumber) {
-        List<Map<String, Object>> list = zxhdao.queryzijin(jindis,jinnumber);
+    public List<Map<String, Object>> queryzijin(String jindis) {
+        List<Map<String, Object>> list = zxhdao.queryzijin(jindis);
         return list;
     }
+
+    @Override
+    public String deletezijin(String id) {
+        zxhdao.deletezijin(id);
+        return "success";
+    }
+
+    @Override
+    public String updateFangListIds(Integer flag, String ids) {
+        zxhdao.updateFangListIds(flag,ids);
+        return "success";
+    }
+
+    @Override
+    public String updateFangJiaIds(Integer flag, Integer ids) {
+        zxhdao.updateFangJiaIds(flag,ids);
+        return "success";
+    }
+
+    @Override
+    public List<Huiji> queryHuijiDate() {
+        List<Huiji> list = zxhdao.queryHuijiDate();
+        return list;
+    }
+
+    @Override
+    public Huiji selectRenMingId(Integer id) {
+        Huiji huiji = zxhdao.selectRenMingId(id);
+        return huiji;
+    }
+
+    @Override
+    public Apartment selectTypeLeid(Integer id) {
+        Apartment apartment = zxhdao.selectTypeLeid(id);
+        return apartment;
+    }
+
+    @Override
+    public String insertFangChuShou(Housing housing) {
+        System.err.println(housing);
+        return null;
+    }
+
 }

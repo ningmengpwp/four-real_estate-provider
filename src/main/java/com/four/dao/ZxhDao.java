@@ -103,14 +103,20 @@ public interface ZxhDao {
     @Delete("DELETE FROM T_HOUSING WHERE ID IN (${ids})")
     void deleteIdAll(@Param("ids") String ids);
 
-    @Update("UPDATE T_HOUSING WHERE RECOMMENDED=1 WHERE ID IN (${ids})")
+    @Update("UPDATE T_HOUSING SET RECOMMENDED=1 WHERE ID IN (${ids})")
     void updateYuanChuId(@Param("ids") String ids);
 
-    @Update("UPDATE T_HOUSING WHERE RECOMMENDED=2 WHERE ID IN (${ids})")
+    @Update("UPDATE T_HOUSING SET RECOMMENDED=2 WHERE ID IN (${ids})")
     void updateDownChuId(@Param("ids") String ids);
 
-    @Select("SELECT * FROM T_HOUSING H,T_APARTMENT A WHERE H.WUID=A.ID")
-    List<Map<String,Object>> selectFangyuan();
+    @Select("<script>" +
+            "SELECT * FROM T_HOUSING H,T_APARTMENT A" +
+            "<where>" +
+            " H.WUID=A.ID " +
+            "<if test='auditstatus!=null &amp;&amp; !\"\".equals(auditstatus)'> AND H.AUDITSTATUS=${auditstatus}</if>" +
+            "</where>" +
+            "</script>")
+    List<Map<String,Object>> selectFangyuan(@Param("auditstatus") Integer auditstatus);
 
     @Select("SELECT * FROM T_APARTMENT A WHERE A.STATUSUP=1 AND A.XIAOZU LIKE '%1%'")
     List<Apartment> queryApart();
@@ -157,12 +163,29 @@ public interface ZxhDao {
     void insertJine(@Param("in") Jine jine);
 
     @Select("<script>" +
-            "select j.*,h.huijinzhanghao as huijinzhanghao from t_jine j,huijin h " +
+            "select j.*,h.huijizhanghao from t_jine j,huiji h " +
             "<where>" +
-            "j.jinid=h.huijinid" +
-            "<if test='jindis!=null &&  !\"\".equals(jindis)'>and j.jindis like '%${jindis}%'</if>" +
-            "<if test='jinnumber!=null && !\"\".equals(jinnumber)'>and j.jinnumber like '%${jinnumber}%'</if>" +
+            "j.jinid=h.huijiid " +
+            "<if test='jindis!=null &amp;&amp; !\"\".equals(jindis)'> and j.jindis like '%${jindis}%'</if>" +
             "</where>" +
             "</script>")
-    List<Map<String,Object>> queryzijin(@Param("jindis") String jindis,@Param("jinnumber") String jinnumber);
+    List<Map<String,Object>> queryzijin(@Param("jindis") String jindis);
+
+    @Delete("DELETE FROM T_JINE WHERE ID IN (${id})")
+    void deletezijin(@Param("id") String id);
+
+    @Update("UPDATE T_HOUSING SET AUDITSTATUS=#{flag} WHERE ID IN (${ids})")
+    void updateFangListIds(@Param("flag") Integer flag,@Param("ids") String ids);
+
+    @Update("UPDATE T_HOUSING SET PUTAWAY=#{flag} WHERE ID IN (${ids})")
+    void updateFangJiaIds(@Param("flag") Integer flag,@Param("ids") Integer ids);
+
+    @Select("SELECT * FROM HUIJI ORDER BY HUIDJDQDATE DESC  LIMIT 0,5")
+    List<Huiji> queryHuijiDate();
+
+    @Select("SELECT * FROM HUIJI WHERE HUIJIID=#{id}")
+    Huiji selectRenMingId(@Param("id") Integer id);
+
+    @Select("select * from t_apartment where id=#{id}")
+    Apartment selectTypeLeid(@Param("id") Integer id);
 }

@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -202,4 +203,63 @@ public class LfqServiceimpl implements LfqService{
     public void updatexiugairz(Huirenzhuang rz) {
         lfqDao.updatexiugairz(rz);
     }
+
+    @Override
+    public List<t_sellzu> queryWTMZ() {
+
+        return lfqDao.queryWTMZ();
+    }
+
+    @Override
+    public void deleteMZ(String ids) {
+        String[] split = ids.split(",");
+        for (int i = 0; i <split.length ; i++) {
+            lfqDao.deleteMZ(split[i]);
+        }
+
+    }
+
+    @Override
+    public Map<String , Object> queryshoukuan() {
+
+        Map<String , Object> map=new HashMap<String, Object>();
+
+        List<Esfjgzs> xiao = lfqDao.queryshoukuan();
+
+        if (xiao!=null&&xiao.size()>0) {
+            Integer  ind=xiao.size();
+            String[]    setarr=new   String[ind];
+            Integer[]   intarr=new   Integer[ind];
+            for (int i = 0; i < xiao.size(); i++) {
+
+                String  a=xiao.get(i).getEstime()+"年";
+                setarr[i]=a;
+                Integer  b=Integer.valueOf(xiao.get(i).getEsypm().toString());
+                intarr[i]=b;
+            }
+            map.put("succ", true);
+            map.put("leg", "['收入金额']");
+            map.put("xax", setarr);
+            map.put("ser", intarr);
+        }else{
+
+            map.put("succ", false);
+        }
+        return map;
+    }
+
+    @Override
+    public List<Map<String, Object>> queryWTZF() {
+        return lfqDao.queryWTZF();
+    }
+
+    @Override
+    public void deleteZF(String idse) {
+        String[] split = idse.split(",");
+        for (int i = 0; i <split.length ; i++) {
+            lfqDao.deleteZF(split[i]);
+        }
+    }
+
+
 }
