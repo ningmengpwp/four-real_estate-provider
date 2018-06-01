@@ -69,6 +69,7 @@ public class GbyServiceImpl implements GbyService{
     @Override
     public void addFeature(Feature feature) {
         feature.setCreatedate(sim.format(new Date()));
+        System.err.println(feature);
         gbyDao.addFeature(feature);
     }
     //删除

@@ -24,8 +24,35 @@ public class t_sellzu implements Serializable{
 
     private String hangye;
 
+    private String lianxiren;
+
     public Integer getWeituoid() {
         return weituoid;
+    }
+
+    @Override
+    public String toString() {
+        return "t_sellzu{" +
+                "weituoid=" + weituoid +
+                ", phone='" + phone + '\'' +
+                ", weituotype=" + weituotype +
+                ", wuyeid='" + wuyeid + '\'' +
+                ", fangyuandz='" + fangyuandz + '\'' +
+                ", fymianji='" + fymianji + '\'' +
+                ", qwjiage='" + qwjiage + '\'' +
+                ", fabutime='" + fabutime + '\'' +
+                ", xwquyu='" + xwquyu + '\'' +
+                ", hangye='" + hangye + '\'' +
+                ", lianxiren='" + lianxiren + '\'' +
+                '}';
+    }
+
+    public String getLianxiren() {
+        return lianxiren;
+    }
+
+    public void setLianxiren(String lianxiren) {
+        this.lianxiren = lianxiren;
     }
 
     public void setWeituoid(Integer weituoid) {
@@ -104,19 +131,4 @@ public class t_sellzu implements Serializable{
         this.hangye = hangye == null ? null : hangye.trim();
     }
 
-    @Override
-    public String toString() {
-        return "t_sellzu{" +
-                "weituoid=" + weituoid +
-                ", phone='" + phone + '\'' +
-                ", weituotype=" + weituotype +
-                ", wuyeid='" + wuyeid + '\'' +
-                ", fangyuandz='" + fangyuandz + '\'' +
-                ", fymianji='" + fymianji + '\'' +
-                ", qwjiage='" + qwjiage + '\'' +
-                ", fabutime='" + fabutime + '\'' +
-                ", xwquyu='" + xwquyu + '\'' +
-                ", hangye='" + hangye + '\'' +
-                '}';
-    }
 }

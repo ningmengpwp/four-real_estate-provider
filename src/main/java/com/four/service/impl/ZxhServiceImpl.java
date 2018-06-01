@@ -176,6 +176,7 @@ public class ZxhServiceImpl implements ZxhService {
     @Override
     public List<Map<String, Object>> selectFangyuan(Integer auditstatus) {
         List<Map<String, Object>> list = zxhdao.selectFangyuan(auditstatus);
+        System.err.println(list);
         return list;
     }
 
@@ -320,8 +321,89 @@ public class ZxhServiceImpl implements ZxhService {
 
     @Override
     public String insertFangChuShou(Housing housing) {
+        housing.setChuzugzd("0");
+        zxhdao.insertFangChuShou(housing);
+        return "success";
+    }
+
+    @Override
+    public List<School> selectSchoolPid() {
+        List<School> list = zxhdao.selectSchoolPid();
+        return list;
+    }
+
+    @Override
+    public List<Situation> selectSituaAll() {
+        List<Situation> list = zxhdao.selectSituaAll();
+        return list;
+    }
+
+    @Override
+    public List<Time> selectTimeAll() {
+        List<Time> list = zxhdao.selectTimeAll();
+        return list;
+    }
+
+    @Override
+    public List<Orientation> selectOrienAll() {
+        List<Orientation> list = zxhdao.selectOrienAll();
+        return list;
+    }
+
+    @Override
+    public List<Retailindustry> selectRetaPid() {
+        List<Retailindustry> list = zxhdao.selectRetaPid();
+        return list;
+    }
+
+    @Override
+    public List<Storetype> selectShangType() {
+        List<Storetype> list = zxhdao.selectShangType();
+        return list;
+    }
+
+    @Override
+    public List<Pavenmenttype> selectPaveTypeAll() {
+        List<Pavenmenttype> list = zxhdao.selectPaveTypeAll();
+        return list;
+    }
+
+    @Override
+    public List<School> selectSchoolTypeCount(Integer pid) {
+        List<School> list = zxhdao.selectSchoolTypeCount(pid);
+        return list;
+    }
+
+    @Override
+    public List<Feature> selectFeatureAll(Integer sel) {
+        List<Feature> list = zxhdao.selectFeatureAll(sel);
+        return list;
+    }
+
+    @Override
+    public List<Mating> selectMatingAll(Integer sel) {
+        List<Mating> list = zxhdao.selectMatingAll(sel);
+        return list;
+    }
+
+    @Override
+    public List<Retailindustry> queryReadPidsid(Integer id) {
+        List<Retailindustry> list = zxhdao.queryReadPidsid(id);
+        return list;
+    }
+
+    @Override
+    public Housing selectChuFangYuanId(Integer id) {
+        Housing housing = zxhdao.selectChuFangYuanId(id);
+        return housing;
+    }
+
+    @Override
+    public String updateFangChuShouId(Housing housing) {
+        String[] split = housing.getRelease().toString().split(",");
         System.err.println(housing);
-        return null;
+        zxhdao.updateFangChuShouId(housing);
+        return "success";
     }
 
 }

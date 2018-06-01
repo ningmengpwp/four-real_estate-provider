@@ -186,6 +186,64 @@ public interface ZxhDao {
     @Select("SELECT * FROM HUIJI WHERE HUIJIID=#{id}")
     Huiji selectRenMingId(@Param("id") Integer id);
 
-    @Select("select * from t_apartment where id=#{id}")
+    @Select("SELECT * FROM T_APARTMENT WHERE ID=#{id}")
     Apartment selectTypeLeid(@Param("id") Integer id);
+
+    @Select("SELECT * FROM T_SCHOOL WHERE PID=0")
+    List<School> selectSchoolPid();
+
+    @Select("SELECT * FROM T_SITUATION")
+    List<Situation> selectSituaAll();
+
+    @Select("SELECT * FROM T_TIME")
+    List<Time> selectTimeAll();
+
+    @Select("SELECT * FROM T_ORIENTATION")
+    List<Orientation> selectOrienAll();
+
+    @Select("SELECT * FROM T_RETAILINDUSTRY WHERE PID=0")
+    List<Retailindustry> selectRetaPid();
+
+    @Select("SELECT * FROM T_STORETYPE")
+    List<Storetype> selectShangType();
+
+    @Select("SELECT * FROM T_PAVEMENTTYPE")
+    List<Pavenmenttype> selectPaveTypeAll();
+
+    @Select("SELECT * FROM T_SCHOOL WHERE PID=#{pid}")
+    List<School> selectSchoolTypeCount(@Param("pid") Integer pid);
+
+    @Select("SELECT * FROM T_FEATURE WHERE SELL LIKE '%${sel}%'")
+    List<Feature> selectFeatureAll(@Param("sel") Integer sel);
+
+    @Select("SELECT * FROM T_MATING WHERE SELL LIKE '%${sel}%'")
+    List<Mating> selectMatingAll(@Param("sel") Integer sel);
+
+    @Select("SELECT * FROM t_retailindustry WHERE PID=#{id}")
+    List<Retailindustry> queryReadPidsid(@Param("id") Integer id);
+
+    @Insert("insert into t_housing values(id,#{wuid},#{name},#{bian},#{acreage},#{fangprice},#{residential},#{whichlayer},#{countlayer}," +
+            "#{areaid},#{districtid},#{position},#{photo},#{busrouteid},#{metrolineid},#{schootypeid},#{schooid},#{tradetypeid}," +
+            "#{tradeid},#{storeid},#{facingid},#{propertyfee},#{decorateid},#{orientationid},#{time},#{equity},#{featuresid},#{facilityid}," +
+            "#{viewcode},#{videoaddress},#{vrlink},#{introduction},#{putaway},#{recommended},#{linkman},#{contactnumber},#{release}," +
+            "#{serialnumber},#{sticknumber},#{expirationtime},#{auditstatus},#{building},#{element},#{chamber},#{familystructure}," +
+            "#{landlordname},#{landlordnumber},#{chuzugzd},#{chuzutgzt})")
+    void insertFangChuShou(Housing housing);
+
+    @Select("select * from t_housing where id=#{id}")
+    Housing selectChuFangYuanId(@Param("id") Integer id);
+
+    /*release=#{hu.release},*/
+    @Update("update t_housing set wuid=#{hu.wuid},name=#{hu.name},bian=#{hu.bian},acreage=#{hu.acreage},fangprice=#{hu.fangprice}," +
+            "residential=#{hu.residential},whichlayer=#{hu.whichlayer},countlayer=#{hu.countlayer},areaid=#{hu.areaid},districtid=#{hu.districtid}," +
+            "position=#{hu.position},photo=#{hu.photo},busrouteid=#{hu.busrouteid},metrolineid=#{hu.metrolineid},schootypeid=#{hu.schootypeid}," +
+            "schooid=#{hu.schooid},tradetypeid=#{hu.tradetypeid},tradeid=#{hu.tradeid},storeid=#{hu.storeid},facingid=#{hu.facingid}," +
+            "propertyfee=#{hu.propertyfee},decorateid=#{hu.decorateid},orientationid=#{hu.orientationid},time=#{hu.time},equity=#{hu.equity}," +
+            "featuresid=#{hu.featuresid},facilityid=#{hu.facilityid},viewcode=#{hu.viewcode},videoaddress=#{hu.videoaddress},vrlink=#{hu.vrlink}," +
+            "introduction=#{hu.introduction},putaway=#{hu.putaway},recommended=#{hu.recommended},linkman=#{hu.linkman},contactnumber=#{hu.contactnumber}," +
+            "serialnumber=#{hu.serialnumber},sticknumber=#{hu.sticknumber},expirationtime=#{hu.expirationtime}," +
+            "auditstatus=#{hu.auditstatus},building=#{hu.building},element=#{hu.element},chamber=#{hu.chamber}," +
+            "familystructure=#{hu.familystructure},landlordname=#{hu.landlordname},landlordnumber=#{hu.landlordnumber}," +
+            "chuzugzd=#{hu.chuzugzd},chuzutgzt=#{hu.chuzutgzt} where id=#{hu.id}")
+    void updateFangChuShouId(@Param("hu") Housing housing);
 }
