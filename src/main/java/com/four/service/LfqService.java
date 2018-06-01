@@ -57,4 +57,14 @@ public interface LfqService {
     Huirenzhuang queryhuiyuanrenzhneg(String id);
 
     void updatexiugairz(Huirenzhuang rz);
+
+    List<t_sellzu> queryWTMZ();
+
+    void deleteMZ(String ids);
+
+    Map<String , Object> queryshoukuan();
+
+    List<Map<String,Object>> queryWTZF();
+
+    void deleteZF(String idse);
 }

@@ -13,11 +13,9 @@ public class Jurisdiction implements Serializable{
     private  Integer mkid;
     private  String mkname;
     private  Integer qxstru;
-
     public Integer getQid() {
         return qid;
     }
-
     public void setQid(Integer qid) {
         this.qid = qid;
     }
