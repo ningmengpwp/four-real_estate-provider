@@ -218,4 +218,37 @@ public class GbyServiceImpl implements GbyService{
     public void updateqxchutuidw(String ids) {
         gbyDao.updateqxchutuidw(ids);
     }
+
+    @Override
+    public List<Map<String, Object>> querysuoyou() {
+        return gbyDao.querysuoyou();
+    }
+
+    @Override
+    public void deleteyuyue(String id) {
+        gbyDao.deleteyuyue(id);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryChuShou() {
+
+        return gbyDao.queryChuShou();
+    }
+
+    @Override
+    public void deleteyChuShou(String id) {
+        gbyDao.deleteyChuShou(id);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryChuZu() {
+        return gbyDao.queryChuZu();
+    }
+
+    @Override
+    public void deleteyChuZu(String id) {
+        gbyDao.deleteyChuZu(id);
+    }
+
+
 }

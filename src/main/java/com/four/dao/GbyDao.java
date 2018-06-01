@@ -113,4 +113,16 @@ public interface GbyDao {
     void updatechutuidw(String ids);
     @Update(" update t_chuzugl c set c.chuzucctj=1 where c.chuzuid in (${ids})")
     void updateqxchutuidw(String ids);
+    @Select("select * from t_yuyue")
+    List<Map<String,Object>> querysuoyou();
+    @Delete("delete from t_yuyue where yuyueid in(${id})")
+    void deleteyuyue(@Param("id")String id);
+    @Select("select * from t_yuyue where yuyuexingzhi=1 ")
+    List<Map<String,Object>> queryChuShou();
+    @Delete("delete from t_yuyue where yuyueid in(${id})")
+    void deleteyChuShou(@Param("id")String id);
+    @Select("select * from t_yuyue where yuyuexingzhi=2 ")
+    List<Map<String,Object>> queryChuZu();
+    @Delete("delete from t_yuyue where yuyueid in(${id})")
+    void deleteyChuZu(@Param("id")String id);
 }
