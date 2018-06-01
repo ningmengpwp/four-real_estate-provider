@@ -67,4 +67,10 @@ public interface LfqService {
     List<Map<String,Object>> queryWTZF();
 
     void deleteZF(String idse);
+
+    List<Map<Object,String>> queryHuijissss();
+
+    Huijin queryhyrenzhengshenhe(String id);
+
+    void updatejqglhui(Huijin hj);
 }

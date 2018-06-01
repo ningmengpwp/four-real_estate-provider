@@ -14,34 +14,7 @@ public class Huijin implements Serializable {
     private String huijindate;
     private String huijinip;
 
-    @Override
-    public String toString() {
-        return "Huijin{" +
-                "huijinid=" + huijinid +
-                ", huijinzhanghao='" + huijinzhanghao + '\'' +
-                ", huijinkymoney=" + huijinkymoney +
-                ", huijinshuiming='" + huijinshuiming + '\'' +
-                ", huijinmoneysl=" + huijinmoneysl +
-                ", huijindate='" + huijindate + '\'' +
-                ", huijinip='" + huijinip + '\'' +
-                '}';
-    }
-
-    public Integer getHuijinkymoney() {
-        return huijinkymoney;
-    }
-
-    public void setHuijinkymoney(Integer huijinkymoney) {
-        this.huijinkymoney = huijinkymoney;
-    }
-
-    public Integer getHuijinmoneysl() {
-        return huijinmoneysl;
-    }
-
-    public void setHuijinmoneysl(Integer huijinmoneysl) {
-        this.huijinmoneysl = huijinmoneysl;
-    }
+    private String huijizhanghao;
 
     public Integer getHuijinid() {
         return huijinid;
@@ -59,12 +32,28 @@ public class Huijin implements Serializable {
         this.huijinzhanghao = huijinzhanghao;
     }
 
+    public Integer getHuijinkymoney() {
+        return huijinkymoney;
+    }
+
+    public void setHuijinkymoney(Integer huijinkymoney) {
+        this.huijinkymoney = huijinkymoney;
+    }
+
     public String getHuijinshuiming() {
         return huijinshuiming;
     }
 
     public void setHuijinshuiming(String huijinshuiming) {
         this.huijinshuiming = huijinshuiming;
+    }
+
+    public Integer getHuijinmoneysl() {
+        return huijinmoneysl;
+    }
+
+    public void setHuijinmoneysl(Integer huijinmoneysl) {
+        this.huijinmoneysl = huijinmoneysl;
     }
 
     public String getHuijindate() {
@@ -83,5 +72,25 @@ public class Huijin implements Serializable {
         this.huijinip = huijinip;
     }
 
+    public String getHuijizhanghao() {
+        return huijizhanghao;
+    }
 
+    public void setHuijizhanghao(String huijizhanghao) {
+        this.huijizhanghao = huijizhanghao;
+    }
+
+    @Override
+    public String toString() {
+        return "Huijin{" +
+                "huijinid=" + huijinid +
+                ", huijinzhanghao='" + huijinzhanghao + '\'' +
+                ", huijinkymoney=" + huijinkymoney +
+                ", huijinshuiming='" + huijinshuiming + '\'' +
+                ", huijinmoneysl=" + huijinmoneysl +
+                ", huijindate='" + huijindate + '\'' +
+                ", huijinip='" + huijinip + '\'' +
+                ", huijizhanghao='" + huijizhanghao + '\'' +
+                '}';
+    }
 }

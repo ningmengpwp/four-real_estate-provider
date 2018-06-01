@@ -261,5 +261,25 @@ public class LfqServiceimpl implements LfqService{
         }
     }
 
+    @Override
+    public List<Map<Object, String>> queryHuijissss() {
+        return lfqDao.queryHuijissss();
+    }
+
+    @Override
+    public Huijin queryhyrenzhengshenhe(String id) {
+        return lfqDao.queryhyrenzhengshenhe(id);
+    }
+
+    @Override
+    public void updatejqglhui(Huijin hj) {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        hj.setHuijindate(sdf.format(new Date()));
+
+        lfqDao.updatejqglhui(hj);
+    }
+
 
 }

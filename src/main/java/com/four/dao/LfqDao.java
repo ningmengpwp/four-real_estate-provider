@@ -62,7 +62,7 @@ public interface LfqDao {
     @Update("update t_overstory set name=#{name},xuhao=#{xuhao} where id=#{id}")
     void updatefwcxszgai(Overstory overstory);
 
-    @Select("select * from huiji a,huijin b,huizcxz c where a.huijinid=b.huijinid and a.huijizhucexz=c.huizcxzid")
+    @Select("select * from huiji a,huijin b,huizcxz c where a.huijinid=b.huijinid and a.huijizhucexz=c.huizcxzid and c.huizcxzid=1")
     List<Map<Object,String>> queryHuiji();
 
     @Select("select  qx.*  from t_user u,t_jurisdiction qx,t_JUzj zj where u.userid=zj.userid and " +
@@ -101,4 +101,12 @@ public interface LfqDao {
     List<Map<String, Object>> queryWTZF();
     @Delete("delete from t_zhaofang where zhaofangid=#{idse}")
     void deleteZF(@Param("idse")String idse);
+
+    @Select("select * from huiji a,huijin b,huizcxz c where a.huijinid=b.huijinid and a.huijizhucexz=c.huizcxzid")
+    List<Map<Object,String>> queryHuijissss();
+
+    @Select("select * from huijin a, huiji b where a.huijinid=b.huijiid and a.huijinid=${id}")
+    Huijin queryhyrenzhengshenhe(@Param("id") String id);
+    @Update("update huijin set huijinshuiming=#{huijinshuiming},huijinmoneysl=#{huijinmoneysl},huijindate=#{huijindate} where huijinid=#{huijinid}")
+    void updatejqglhui(Huijin hj);
 }
