@@ -102,4 +102,30 @@ public interface ZxhService {
 
     String insertFangChuShou(Housing housing);
 
+    List<School> selectSchoolPid();
+
+    List<Situation> selectSituaAll();
+
+    List<Time> selectTimeAll();
+
+    List<Orientation> selectOrienAll();
+
+    List<Retailindustry> selectRetaPid();
+
+    List<Storetype> selectShangType();
+
+    List<Pavenmenttype> selectPaveTypeAll();
+
+    List<School> selectSchoolTypeCount(Integer pid);
+
+    List<Feature> selectFeatureAll(Integer sel);
+
+    List<Mating> selectMatingAll(Integer sel);
+
+    List<Retailindustry> queryReadPidsid(Integer id);
+
+    Housing selectChuFangYuanId(Integer id);
+
+    String updateFangChuShouId(Housing housing);
+
 }

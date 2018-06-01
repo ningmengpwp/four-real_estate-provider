@@ -81,4 +81,12 @@ public interface GbyService {
     void updatechutuidw(String ids);
 
     void updateqxchutuidw(String ids);
+
+    List<Map<String,Object>> querysuoyou();
+
+    void deleteyuyue(String id);
+    List<Map<String,Object>> queryChuShou();
+    void deleteyChuShou(String id);
+    List<Map<String,Object>> queryChuZu();
+    void deleteyChuZu(String id);
 }

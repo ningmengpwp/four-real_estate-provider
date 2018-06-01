@@ -19,10 +19,10 @@ public class Housing implements Serializable{
     private Integer districtid;
     private String position;
     private String photo;
-    private Integer busrouteid;
-    private Integer metrolineid;
+    private String busrouteid;
+    private String metrolineid;
     private Integer schootypeid;
-    private Integer schooid;
+    private String schooid;
     private Integer tradetypeid;
     private Integer tradeid;
     private Integer storeid;
@@ -32,8 +32,8 @@ public class Housing implements Serializable{
     private Integer orientationid;
     private String time;
     private String equity;
-    private Integer featuresid;
-    private Integer facilityid;
+    private String featuresid;
+    private String facilityid;
     private String viewcode;
     private String videoaddress;
     private String vrlink;
@@ -42,7 +42,7 @@ public class Housing implements Serializable{
     private Integer recommended;
     private String linkman;
     private String contactnumber;
-    private String release;
+    private Integer release;
     private Integer serialnumber;
     private Integer sticknumber;
     private String expirationtime;
@@ -53,6 +53,8 @@ public class Housing implements Serializable{
     private String familystructure;
     private String landlordname;
     private String landlordnumber;
+    private String chuzugzd;
+    private String chuzutgzt;
 
     @Override
     public String toString() {
@@ -70,10 +72,10 @@ public class Housing implements Serializable{
                 ", districtid=" + districtid +
                 ", position='" + position + '\'' +
                 ", photo='" + photo + '\'' +
-                ", busrouteid=" + busrouteid +
-                ", metrolineid=" + metrolineid +
+                ", busrouteid='" + busrouteid + '\'' +
+                ", metrolineid='" + metrolineid + '\'' +
                 ", schootypeid=" + schootypeid +
-                ", schooid=" + schooid +
+                ", schooid='" + schooid + '\'' +
                 ", tradetypeid=" + tradetypeid +
                 ", tradeid=" + tradeid +
                 ", storeid=" + storeid +
@@ -83,8 +85,8 @@ public class Housing implements Serializable{
                 ", orientationid=" + orientationid +
                 ", time='" + time + '\'' +
                 ", equity='" + equity + '\'' +
-                ", featuresid=" + featuresid +
-                ", facilityid=" + facilityid +
+                ", featuresid='" + featuresid + '\'' +
+                ", facilityid='" + facilityid + '\'' +
                 ", viewcode='" + viewcode + '\'' +
                 ", videoaddress='" + videoaddress + '\'' +
                 ", vrlink='" + vrlink + '\'' +
@@ -93,7 +95,7 @@ public class Housing implements Serializable{
                 ", recommended=" + recommended +
                 ", linkman='" + linkman + '\'' +
                 ", contactnumber='" + contactnumber + '\'' +
-                ", release='" + release + '\'' +
+                ", release=" + release +
                 ", serialnumber=" + serialnumber +
                 ", sticknumber=" + sticknumber +
                 ", expirationtime='" + expirationtime + '\'' +
@@ -104,6 +106,8 @@ public class Housing implements Serializable{
                 ", familystructure='" + familystructure + '\'' +
                 ", landlordname='" + landlordname + '\'' +
                 ", landlordnumber='" + landlordnumber + '\'' +
+                ", chuzugzd='" + chuzugzd + '\'' +
+                ", chuzutgzt='" + chuzutgzt + '\'' +
                 '}';
     }
 
@@ -211,19 +215,19 @@ public class Housing implements Serializable{
         this.photo = photo;
     }
 
-    public Integer getBusrouteid() {
+    public String getBusrouteid() {
         return busrouteid;
     }
 
-    public void setBusrouteid(Integer busrouteid) {
+    public void setBusrouteid(String busrouteid) {
         this.busrouteid = busrouteid;
     }
 
-    public Integer getMetrolineid() {
+    public String getMetrolineid() {
         return metrolineid;
     }
 
-    public void setMetrolineid(Integer metrolineid) {
+    public void setMetrolineid(String metrolineid) {
         this.metrolineid = metrolineid;
     }
 
@@ -235,11 +239,11 @@ public class Housing implements Serializable{
         this.schootypeid = schootypeid;
     }
 
-    public Integer getSchooid() {
+    public String getSchooid() {
         return schooid;
     }
 
-    public void setSchooid(Integer schooid) {
+    public void setSchooid(String schooid) {
         this.schooid = schooid;
     }
 
@@ -315,19 +319,19 @@ public class Housing implements Serializable{
         this.equity = equity;
     }
 
-    public Integer getFeaturesid() {
+    public String getFeaturesid() {
         return featuresid;
     }
 
-    public void setFeaturesid(Integer featuresid) {
+    public void setFeaturesid(String featuresid) {
         this.featuresid = featuresid;
     }
 
-    public Integer getFacilityid() {
+    public String getFacilityid() {
         return facilityid;
     }
 
-    public void setFacilityid(Integer facilityid) {
+    public void setFacilityid(String facilityid) {
         this.facilityid = facilityid;
     }
 
@@ -395,11 +399,11 @@ public class Housing implements Serializable{
         this.contactnumber = contactnumber;
     }
 
-    public String getRelease() {
+    public Integer getRelease() {
         return release;
     }
 
-    public void setRelease(String release) {
+    public void setRelease(Integer release) {
         this.release = release;
     }
 
@@ -481,5 +485,21 @@ public class Housing implements Serializable{
 
     public void setLandlordnumber(String landlordnumber) {
         this.landlordnumber = landlordnumber;
+    }
+
+    public String getChuzugzd() {
+        return chuzugzd;
+    }
+
+    public void setChuzugzd(String chuzugzd) {
+        this.chuzugzd = chuzugzd;
+    }
+
+    public String getChuzutgzt() {
+        return chuzutgzt;
+    }
+
+    public void setChuzutgzt(String chuzutgzt) {
+        this.chuzutgzt = chuzutgzt;
     }
 }

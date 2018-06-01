@@ -1,19 +1,18 @@
 package com.four.service.impl;
 
 import com.four.dao.SunDao;
-import com.four.entity.Orientation;
-import com.four.entity.Situation;
+import com.four.entity.*;
 import com.four.service.SunService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
+@Service
 public class SunServiceImpl implements SunService {
-
     @Autowired
     private SunDao sunDao;
-
     @Override
     public List<Orientation> queryOrientation() {
         return sunDao.queryOrientation();
@@ -94,4 +93,39 @@ public class SunServiceImpl implements SunService {
     public void updateqingkuanggai(Situation situation) {
         sunDao.updateqingkuanggai(situation);
     }
+
+    @Override
+    public List<Map<Object, String>> queryzhongjie() {
+        return sunDao.queryzhongjie();
+    }
+
+    /*@Override
+    public Huiji updatesyhyhuicha1(String id) {
+        return sunDao.updatesyhyhuicha1(id);
+    }
+
+    @Override
+    public List<Area> querydreadifangid1(String id) {
+        return sunDao.querydreadifangid1(id);
+    }
+
+    @Override
+    public List<Huideng> queryhydj() {
+        return sunDao.queryhydj();
+    }
+
+    @Override
+    public List<Area> querydrea() {
+        return sunDao.querydrea();
+    }
+
+    @Override
+    public void updatesyhygai(Huiji hjj) {
+        sunDao.updatesyhygai(hjj);
+    }
+
+    @Override
+    public Huirenzhuang queryhuiyuanrenzhneg(String id) {
+        return sunDao.queryhuiyuanrenzhneg(id);
+    }*/
 }

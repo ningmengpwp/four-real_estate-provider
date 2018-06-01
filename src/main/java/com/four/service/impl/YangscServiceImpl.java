@@ -1,16 +1,12 @@
 package com.four.service.impl;
 
-import com.four.entity.Area;
-import com.four.entity.Jurisdiction;
+import com.four.entity.*;
 import com.four.mapper.YangscMapper;
 import com.four.service.YangscService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class YangscServiceImpl implements YangscService {
    private static List<Area> lis=new ArrayList<>();
@@ -63,6 +59,7 @@ public class YangscServiceImpl implements YangscService {
     public void updateqvyv(Area area) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         area.setCreatedate(simpleDateFormat.format(new Date()));
+        System.err.println(area+"修改 ");
         area.setPid("0");
         mapper.updateqvyv(area);
     }
@@ -88,8 +85,110 @@ public class YangscServiceImpl implements YangscService {
 
     @Override
     public List<Map<String,Object>> queryQuxan(Integer userid) {
-        System.err.println("到加了"+userid);
+       // System.err.println("到加了"+userid);
         return  mapper.queryQuxan(userid);
+    }
+    @Override
+    public List<Map<String, Object>> queryshejiList(String zhang) {
+        return mapper.queryshejiList(zhang);
+    }
+
+    @Override
+    public void updateSeji(Huiji huiji) {
+        mapper.updateSeji(huiji);
+    }
+
+    @Override
+    public Huirenzhuang queryhxrenzheng(Integer id) {
+        System.err.println("66回显"+id);
+        return   mapper.queryhxrenzheng(id);
+    }
+
+    @Override
+    public List<Jurisdiction> quanxianList() {
+        return mapper.quanxianList();
+    }
+
+    @Override
+    public String queryUser(String username) {
+        List<User>list=mapper.queryUser(username);
+        String falg="";
+        if (list.size()==0){
+            falg="0";
+        }else{
+            falg="1";
+        }
+        return falg;
+    }
+
+    @Override
+    public void addquanxian(String username, String pid, String userpass, String name) {
+        User user=new User();
+        user.setName(name);
+        user.setUsername(username);
+        user.setUserpass(userpass);
+        user.setZt(0);
+        mapper.addquanxian(user);
+        String [] arr= pid.split(",");
+
+        for (int i = 0; i <arr.length; i++) {
+            JUzj juzj=new JUzj();
+            juzj.setQid(Integer.valueOf(arr[i]));
+            juzj.setUserid(user.getUserid());
+            mapper.addq(juzj);
+        }
+    }
+
+    @Override
+    public List<User> queryguanList() {
+        return mapper.queryguanList();
+    }
+
+    @Override
+    public void deleteGl(String ids) {
+        mapper.deleteuser(ids);
+        mapper.deletejua(ids);
+    }
+
+    @Override
+    public Map<String, Object> queryqxHx(Integer userid) {
+        Map<String, Object>map=mapper.queryqxHx(userid);
+       List <JUzj>list=mapper.queryqxJu(userid);
+        map.put("list",list);
+        return  map;
+    }
+
+    @Override
+    public void updateQx(Integer userid, String username, String pid, String userpass, String name) {
+        User user=new User();
+        user.setUserid(userid);
+        user.setName(name);
+        user.setUsername(username);
+        user.setUserpass(userpass);
+        if (!userpass.equals("")&&userpass!=null){
+            mapper.updateUser(user);
+        }else{
+            mapper.updateUses(user);
+        }
+
+        mapper.deleteuse(userid);
+       String [] arr= pid.split(",");
+        for (int i = 0; i <arr.length; i++) {
+            JUzj juzj=new JUzj();
+            juzj.setQid(Integer.valueOf(arr[i]));
+            juzj.setUserid(userid);
+            mapper.addq(juzj);
+        }
+    }
+
+    @Override
+    public void deleteZhuangIdAll(String ids) {
+       /* List<Huiji>list=mapper.selzhuang(ids);
+        for (int i = 0; i <list.size(); i++){
+            mapper.deleteZhuangId(list.get(i).getHuijinid());
+            mapper.deleteZhuangaId(list.get(i).getHuijizhucexz());
+        }*/
+        mapper.deleteZhuangIdAll(ids);
     }
 
 }

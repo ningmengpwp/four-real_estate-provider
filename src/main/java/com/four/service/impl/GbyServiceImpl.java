@@ -69,6 +69,7 @@ public class GbyServiceImpl implements GbyService{
     @Override
     public void addFeature(Feature feature) {
         feature.setCreatedate(sim.format(new Date()));
+        System.err.println(feature);
         gbyDao.addFeature(feature);
     }
     //删除
@@ -218,4 +219,37 @@ public class GbyServiceImpl implements GbyService{
     public void updateqxchutuidw(String ids) {
         gbyDao.updateqxchutuidw(ids);
     }
+
+    @Override
+    public List<Map<String, Object>> querysuoyou() {
+        return gbyDao.querysuoyou();
+    }
+
+    @Override
+    public void deleteyuyue(String id) {
+        gbyDao.deleteyuyue(id);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryChuShou() {
+
+        return gbyDao.queryChuShou();
+    }
+
+    @Override
+    public void deleteyChuShou(String id) {
+        gbyDao.deleteyChuShou(id);
+    }
+
+    @Override
+    public List<Map<String, Object>> queryChuZu() {
+        return gbyDao.queryChuZu();
+    }
+
+    @Override
+    public void deleteyChuZu(String id) {
+        gbyDao.deleteyChuZu(id);
+    }
+
+
 }
