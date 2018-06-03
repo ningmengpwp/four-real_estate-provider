@@ -121,7 +121,7 @@ public interface ZxhDao {
     @Select("SELECT * FROM T_APARTMENT A WHERE A.STATUSUP=1 AND A.XIAOZU LIKE '%1%'")
     List<Apartment> queryApart();
 
-    @Select("SELECT * FROM HUIJI A,HUIJIN B,HUIZCXZ C WHERE A.HUIJINID=B.HUIJINID AND A.HUIJIZHUCEXZ=C.HUIZCXZID AND C.HUIZCXZID=6")
+    @Select("select * from huiji a,huijin b,huizcxz c where a.huijinid=b.huijinid and a.huijizhucexz=c.huizcxzid and c.huizcxzid=6")
     List<Map<String,Object>> queryZhuang();
 
     @Delete("DELETE FROM HUIJIN WHERE HUIJIID in (${ids})")

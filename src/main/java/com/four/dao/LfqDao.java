@@ -89,8 +89,10 @@ public interface LfqDao {
 
     @Update("update huirenzhuang set huirenztai=#{huirenztai},huishenid=#{huishenid},huirenjjyy=#{huirenjjyy},huirenzsxm=#{huirenzsxm},huirensfzh=#{huirensfzh},huirensfzzm=#{huirensfzzm},huirensfzfm=#{huirensfzfm} where huirenid=#{huirenid}")
     void updatexiugairz(Huirenzhuang rz);
+
     @Select("select a.yuanname ,s.weituoid,s.fangyuandz ,s.fymianji ,s.lianxiren, s.phone ,s.fabutime ,s.qwjiage,s.weituotype from t_sellzu s,t_apartment a where s.wuyeid=a.id ")
     List<t_sellzu> queryWTMZ();
+
     @Delete("delete from t_sellzu where weituoid = #{ids}")
     void deleteMZ(@Param("ids")String ids);
 
@@ -99,6 +101,7 @@ public interface LfqDao {
 
     @Select("select q.mianjiyaoqiu,z.zhaofangid,z.weituotype,z.xiwangquyu,z.phone,z.fabutime from t_zhaofang z,t_qiugougl q where z.zhaofangid=q.qiugouid")
     List<Map<String, Object>> queryWTZF();
+
     @Delete("delete from t_zhaofang where zhaofangid=#{idse}")
     void deleteZF(@Param("idse")String idse);
 
@@ -107,6 +110,16 @@ public interface LfqDao {
 
     @Select("select * from huijin a, huiji b where a.huijinid=b.huijiid and a.huijinid=${id}")
     Huijin queryhyrenzhengshenhe(@Param("id") String id);
+
     @Update("update huijin set huijinshuiming=#{huijinshuiming},huijinmoneysl=#{huijinmoneysl},huijindate=#{huijindate} where huijinid=#{huijinid}")
     void updatejqglhui(Huijin hj);
+
+    @Select("select userphone from t_user where userphone=#{phone}")
+    String fasongyzm(@Param("phone") String phone);
+
+    @Insert("insert into t_user values(#{userid},#{username},#{userpass},#{userphone})")
+    void zhuceuser(User user);
+
+    @Select("select * from t_user where username=#{username} or userphone=#{username}")
+    List<User> queryname(@Param("username") String username);
 }
