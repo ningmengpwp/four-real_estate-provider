@@ -2,6 +2,7 @@ package com.four.service.impl;
 
 import com.four.entity.*;
 import com.four.mapper.YangscMapper;
+import com.four.mysqlzc.ReadOnlyConnection;
 import com.four.service.YangscService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,11 +22,13 @@ public class YangscServiceImpl implements YangscService {
         mapper.addqvyv(area);
     }
 
+    @ReadOnlyConnection
     @Override
     public List queryqvyvList(){
        lis.clear();
         return querydigui(0);
     }
+    @ReadOnlyConnection
     public List querydigui(Integer pid){
         List<Area> list = mapper.queryList(pid);
         if (list != null && list.size()>0){
@@ -50,6 +53,7 @@ public class YangscServiceImpl implements YangscService {
         mapper.addqvyv(area);
     }
 
+    @ReadOnlyConnection
     @Override
     public Area queryqvyv(Integer id) {
         return  mapper.queryqvyv(id);
@@ -64,6 +68,7 @@ public class YangscServiceImpl implements YangscService {
         mapper.updateqvyv(area);
     }
 
+    @ReadOnlyConnection
     @Override
     public List queryqvyvzi(Integer id) {
        Area area= mapper.queryqvyv(id);
@@ -83,11 +88,13 @@ public class YangscServiceImpl implements YangscService {
         mapper.updateqvyv(area);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String,Object>> queryQuxan(Integer userid) {
        // System.err.println("到加了"+userid);
         return  mapper.queryQuxan(userid);
     }
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> queryshejiList(String zhang) {
         return mapper.queryshejiList(zhang);
@@ -98,17 +105,20 @@ public class YangscServiceImpl implements YangscService {
         mapper.updateSeji(huiji);
     }
 
+    @ReadOnlyConnection
     @Override
     public Huirenzhuang queryhxrenzheng(Integer id) {
         System.err.println("66回显"+id);
         return   mapper.queryhxrenzheng(id);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Jurisdiction> quanxianList() {
         return mapper.quanxianList();
     }
 
+    @ReadOnlyConnection
     @Override
     public String queryUser(String username) {
         List<User>list=mapper.queryUser(username);
@@ -139,6 +149,7 @@ public class YangscServiceImpl implements YangscService {
         }
     }
 
+    @ReadOnlyConnection
     @Override
     public List<User> queryguanList() {
         return mapper.queryguanList();
@@ -150,6 +161,7 @@ public class YangscServiceImpl implements YangscService {
         mapper.deletejua(ids);
     }
 
+    @ReadOnlyConnection
     @Override
     public Map<String, Object> queryqxHx(Integer userid) {
         Map<String, Object>map=mapper.queryqxHx(userid);

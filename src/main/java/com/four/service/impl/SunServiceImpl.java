@@ -2,6 +2,7 @@ package com.four.service.impl;
 
 import com.four.dao.SunDao;
 import com.four.entity.*;
+import com.four.mysqlzc.ReadOnlyConnection;
 import com.four.service.SunService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class SunServiceImpl implements SunService {
         return sunDao.queryOrientation();
     }
 
+    @ReadOnlyConnection
     @Override
     public Integer queryxuhao() {
 
@@ -44,6 +46,7 @@ public class SunServiceImpl implements SunService {
 
     }
 
+    @ReadOnlyConnection
     @Override
     public Orientation updatechaoxianghui(Integer id) {
 
@@ -55,11 +58,13 @@ public class SunServiceImpl implements SunService {
         sunDao.updatechaoxianggai(orientation);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Situation> querySituation() {
         return sunDao.querySituation();
     }
 
+    @ReadOnlyConnection
     @Override
     public Integer queryxuhao2() {
         return sunDao.queryxuhao2();
@@ -94,6 +99,7 @@ public class SunServiceImpl implements SunService {
         sunDao.updateqingkuanggai(situation);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<Object, String>> queryzhongjie() {
         return sunDao.queryzhongjie();

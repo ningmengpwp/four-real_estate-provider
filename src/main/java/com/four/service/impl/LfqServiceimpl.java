@@ -2,6 +2,7 @@ package com.four.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.four.entity.*;
+import com.four.mysqlzc.ReadOnlyConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.four.dao.LfqDao;
 import com.four.service.LfqService;
@@ -20,6 +21,7 @@ public class LfqServiceimpl implements LfqService{
     @Autowired
     private LfqDao lfqDao;
 
+    @ReadOnlyConnection
     @Override
     public String queryuser(User user){
 
@@ -54,12 +56,12 @@ public class LfqServiceimpl implements LfqService{
         }
 
     }
+    @ReadOnlyConnection
     @Override
     public List<Tree> querytree(Integer a){
         Integer querytree = lfqDao.querytree(a);
         return queryTreeAgain(a,querytree);
     }
-
 
     // 递归  自己调用自己
     public List<Tree> queryTreeAgain(Integer a,Integer pid){
@@ -73,12 +75,13 @@ public class LfqServiceimpl implements LfqService{
         return trees;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Metro> queryMetro() {
         return lfqDao.queryMetro();
     }
 
-
+    @ReadOnlyConnection
     @Override
     public Integer queryxuhao() {
         return lfqDao.queryxuhao();
@@ -105,6 +108,7 @@ public class LfqServiceimpl implements LfqService{
         }
     }
 
+    @ReadOnlyConnection
     @Override
     public Metro updateditiehui(Integer id) {
 
@@ -116,11 +120,13 @@ public class LfqServiceimpl implements LfqService{
         lfqDao.updateditiegai(metro);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Overstory> queryOverstory() {
         return lfqDao.queryOverstory();
     }
 
+    @ReadOnlyConnection
     @Override
     public Integer queryfwlcxuhao() {
         return lfqDao.queryfwlcxuhao();
@@ -194,6 +200,7 @@ public class LfqServiceimpl implements LfqService{
          lfqDao.updatesyhygai(hjj);
     }
 
+    @ReadOnlyConnection
     @Override
     public Huirenzhuang queryhuiyuanrenzhneg(String id) {
       return lfqDao.queryhuiyuanrenzhneg(id);
@@ -204,6 +211,7 @@ public class LfqServiceimpl implements LfqService{
         lfqDao.updatexiugairz(rz);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<t_sellzu> queryWTMZ() {
 
@@ -219,6 +227,7 @@ public class LfqServiceimpl implements LfqService{
 
     }
 
+    @ReadOnlyConnection
     @Override
     public Map<String , Object> queryshoukuan() {
 
@@ -248,6 +257,7 @@ public class LfqServiceimpl implements LfqService{
         return map;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> queryWTZF() {
         return lfqDao.queryWTZF();
@@ -261,11 +271,13 @@ public class LfqServiceimpl implements LfqService{
         }
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<Object, String>> queryHuijissss() {
         return lfqDao.queryHuijissss();
     }
 
+    @ReadOnlyConnection
     @Override
     public Huijin queryhyrenzhengshenhe(String id) {
         return lfqDao.queryhyrenzhengshenhe(id);

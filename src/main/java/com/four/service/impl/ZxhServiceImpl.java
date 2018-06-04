@@ -2,6 +2,7 @@ package com.four.service.impl;
 
 import com.four.dao.ZxhDao;
 import com.four.entity.*;
+import com.four.mysqlzc.ReadOnlyConnection;
 import com.four.service.ZxhService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class ZxhServiceImpl implements ZxhService {
     @Autowired
     private ZxhDao zxhdao;
 
-    /*@ReadOnlyConnection*/
+    @ReadOnlyConnection
     @Override
     public List<Member> selectHui() {
         List<Member> list = zxhdao.selectHui();
@@ -35,6 +36,7 @@ public class ZxhServiceImpl implements ZxhService {
         }
     }
 
+    @ReadOnlyConnection
     @Override
     public Integer selectMaxXu() {
         Integer maxpai = zxhdao.selectMaxXu();
@@ -47,6 +49,7 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public Member selectMemId(Integer id) {
         Member member = zxhdao.selectMemId(id);
@@ -71,12 +74,14 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String,Object>> selectShang() {
         List<Map<String,Object>> list = zxhdao.selectShang();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Area> queryAreall() {
         List<Area> list = zxhdao.queryAreall();
@@ -101,6 +106,7 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public Business selectBusId(Integer id) {
         Business business = zxhdao.selectBusId(id);
@@ -113,6 +119,7 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> selectZiXun() {
         List<Map<String, Object>> list = zxhdao.selectZiXun();
@@ -131,12 +138,14 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Consultingcontent> selectConsultall() {
         List<Consultingcontent> list = zxhdao.selectConsultall();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Advisory> selectAdvall() {
         List<Advisory> list = zxhdao.selectAdvall();
@@ -155,6 +164,7 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public Consultinglist selectQueryId(Integer id) {
         Consultinglist consultinglist = zxhdao.selectQueryId(id);
@@ -167,12 +177,14 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String,Object>> selectShenZiXun() {
         List<Map<String,Object>> list = zxhdao.selectShenZiXun();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> selectFangyuan(Integer auditstatus) {
         List<Map<String, Object>> list = zxhdao.selectFangyuan(auditstatus);
@@ -204,12 +216,14 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Apartment> queryApart() {
         List<Apartment> list = zxhdao.queryApart();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> queryZhuang() {
         List<Map<String, Object>> list = zxhdao.queryZhuang();
@@ -227,18 +241,21 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Huiquan> selectQuan() {
         List<Huiquan> list = zxhdao.selectQuan();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public Huiji selectXiuId(Integer id) {
         Huiji huiji = zxhdao.selectXiuId(id);
         return huiji;
     }
 
+    @ReadOnlyConnection
     @Override
     public Huirenshen selectQueRen(Integer id) {
         Huirenshen huirenshen = zxhdao.selectQueRen(id);
@@ -277,6 +294,7 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> queryzijin(String jindis) {
         List<Map<String, Object>> list = zxhdao.queryzijin(jindis);
@@ -301,18 +319,21 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Huiji> queryHuijiDate() {
         List<Huiji> list = zxhdao.queryHuijiDate();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public Huiji selectRenMingId(Integer id) {
         Huiji huiji = zxhdao.selectRenMingId(id);
         return huiji;
     }
 
+    @ReadOnlyConnection
     @Override
     public Apartment selectTypeLeid(Integer id) {
         Apartment apartment = zxhdao.selectTypeLeid(id);
@@ -326,74 +347,87 @@ public class ZxhServiceImpl implements ZxhService {
         return "success";
     }
 
+    @ReadOnlyConnection
     @Override
     public List<School> selectSchoolPid() {
         List<School> list = zxhdao.selectSchoolPid();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Situation> selectSituaAll() {
         List<Situation> list = zxhdao.selectSituaAll();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Time> selectTimeAll() {
         List<Time> list = zxhdao.selectTimeAll();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Orientation> selectOrienAll() {
         List<Orientation> list = zxhdao.selectOrienAll();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Retailindustry> selectRetaPid() {
         List<Retailindustry> list = zxhdao.selectRetaPid();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Storetype> selectShangType() {
         List<Storetype> list = zxhdao.selectShangType();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Pavenmenttype> selectPaveTypeAll() {
         List<Pavenmenttype> list = zxhdao.selectPaveTypeAll();
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<School> selectSchoolTypeCount(Integer pid) {
         List<School> list = zxhdao.selectSchoolTypeCount(pid);
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Feature> selectFeatureAll(Integer sel) {
         List<Feature> list = zxhdao.selectFeatureAll(sel);
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Mating> selectMatingAll(Integer sel) {
         List<Mating> list = zxhdao.selectMatingAll(sel);
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Retailindustry> queryReadPidsid(Integer id) {
         List<Retailindustry> list = zxhdao.queryReadPidsid(id);
         return list;
     }
 
+    @ReadOnlyConnection
     @Override
     public Housing selectChuFangYuanId(Integer id) {
+        System.err.println(id+"  asdasdasdasdasdasdasdasd");
         Housing housing = zxhdao.selectChuFangYuanId(id);
         return housing;
     }

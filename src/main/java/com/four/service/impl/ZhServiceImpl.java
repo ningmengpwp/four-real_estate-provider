@@ -2,6 +2,7 @@ package com.four.service.impl;
 
 import com.four.dao.Zhdao;
 import com.four.entity.*;
+import com.four.mysqlzc.ReadOnlyConnection;
 import com.four.service.ZhService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class ZhServiceImpl implements ZhService {
     private Zhdao zhdao;
 
 //************公交信息**********************************************************************
-
+@ReadOnlyConnection
  @Override
     public List<Public>  queryBus() {
         return zhdao.queryBus();
@@ -43,6 +44,7 @@ public class ZhServiceImpl implements ZhService {
         zhdao.upbus(bus);
     }
 
+    @ReadOnlyConnection
     @Override
     public Integer queryxuhao() {
 
@@ -63,6 +65,7 @@ public class ZhServiceImpl implements ZhService {
 
 //********配套信息********************************************************************************
 
+    @ReadOnlyConnection
     @Override
     public List<Mating> queryPeiTao() {
         return zhdao.queryPeiTao();
@@ -89,21 +92,25 @@ public class ZhServiceImpl implements ZhService {
         zhdao.addpeitao(mating);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Apartment> queryxuhaochushou() {
         return zhdao.queryxuhaochushou();
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Apartment> queryxuhaochuzu() {
         return zhdao.queryxuhaochuzu();
     }
 
+    @ReadOnlyConnection
     @Override
     public Integer queryxuhaoP() {
         return zhdao.queryxuhaoP();
     }
 
+    @ReadOnlyConnection
     @Override
     public Mating queryByIdpeitao(Integer id) {
         return zhdao.queryByIdpeitao(id);
@@ -115,7 +122,7 @@ public class ZhServiceImpl implements ZhService {
     }
 
     //***********建材中心信息**********************************************************************************************************
-
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> queryJianCai() {
         return zhdao.queryJianCai();
@@ -126,6 +133,7 @@ public class ZhServiceImpl implements ZhService {
         zhdao.delallJIan(id);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> queryQuizu(Integer wuyeid, String biaoti) {
         return zhdao.queryQuizu(wuyeid,biaoti);
@@ -141,6 +149,7 @@ public class ZhServiceImpl implements ZhService {
          zhdao.updateChuZuChuId(qiugouid);
     }
 
+    @ReadOnlyConnection
     @Override
     public void updateDownChuId(String qiugouid) {
         zhdao.updateDownChuId(qiugouid);
@@ -167,6 +176,7 @@ public class ZhServiceImpl implements ZhService {
         zhdao.updateShenHheChuIds(flag,ids);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> queryQuiGou(Integer wuyeid, String biaoti) {
         return zhdao.queryQuiGou(wuyeid,biaoti);

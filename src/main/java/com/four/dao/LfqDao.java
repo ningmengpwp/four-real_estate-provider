@@ -99,7 +99,7 @@ public interface LfqDao {
     @Select("select * from t_esfjgzs")
     List<Esfjgzs> queryshoukuan();
 
-    @Select("select q.mianjiyaoqiu,z.zhaofangid,z.weituotype,z.xiwangquyu,z.phone,z.fabutime from t_zhaofang z,t_qiugougl q where z.zhaofangid=q.qiugouid")
+    @Select("select * from t_zhaofang z")
     List<Map<String, Object>> queryWTZF();
 
     @Delete("delete from t_zhaofang where zhaofangid=#{idse}")

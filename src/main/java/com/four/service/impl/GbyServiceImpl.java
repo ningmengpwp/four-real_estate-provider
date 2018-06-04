@@ -2,6 +2,7 @@ package com.four.service.impl;
 
 import com.four.dao.GbyDao;
 import com.four.entity.*;
+import com.four.mysqlzc.ReadOnlyConnection;
 import com.four.service.GbyService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,11 +15,13 @@ public class GbyServiceImpl implements GbyService{
     @Autowired
     private GbyDao gbyDao;
     //查询
+    @ReadOnlyConnection
     @Override
     public List<Apartment> queryApartment() {
         return gbyDao.queryApartment();
     }
     //排序
+    @ReadOnlyConnection
     @Override
     public Integer querycount() {
         return gbyDao.querycount();
@@ -35,6 +38,7 @@ public class GbyServiceImpl implements GbyService{
         gbyDao.deleteApartment(id);
     }
     //回显
+    @ReadOnlyConnection
     @Override
     public Apartment queryById(Integer id) {
         return gbyDao.queryById(id);
@@ -45,21 +49,25 @@ public class GbyServiceImpl implements GbyService{
         gbyDao.updateApartment(apartment);
     }
     //查询物业特色设置
+    @ReadOnlyConnection
     @Override
     public List<Feature> queryFeature() {
         return gbyDao.queryFeature();
     }
     //p排序
+    @ReadOnlyConnection
     @Override
     public Integer querycount1() {
         return gbyDao.querycount1();
     }
     //c查询
+    @ReadOnlyConnection
     @Override
     public List<Apartment> queryApartment1() {
         return gbyDao.queryApartment1();
     }
     //c查询
+    @ReadOnlyConnection
     @Override
     public List<Apartment> queryApartment2() {
         return gbyDao.queryApartment2();
@@ -83,6 +91,7 @@ public class GbyServiceImpl implements GbyService{
         gbyDao.deleteswuyetese(ids);
     }
     //回显
+    @ReadOnlyConnection
     @Override
     public Feature queryByIdwuyetese(Integer id) {
         return gbyDao.queryByIdwuyetese(id);
@@ -93,6 +102,7 @@ public class GbyServiceImpl implements GbyService{
         gbyDao.updatewuyetese(feature);
     }
     //查询经纪人
+    @ReadOnlyConnection
     @Override
     public List<Map<Object, String>> queryjingji() {
         return gbyDao.queryjingji();
@@ -103,16 +113,19 @@ public class GbyServiceImpl implements GbyService{
         return gbyDao.updatesyhyhuicha(id);
     }
     //查询所有会员等级
+    @ReadOnlyConnection
     @Override
     public List<Huideng> queryhydj() {
         return gbyDao.queryhydj();
     }
     //查询所有会员地区
+    @ReadOnlyConnection
     @Override
     public List<Area> querydrea() {
         return gbyDao.querydrea();
     }
     //查询所有会员地区地方
+    @ReadOnlyConnection
     @Override
     public List<Area> querydreadifangid(String id) {
         return gbyDao.querydreadifangid(id);
@@ -123,61 +136,73 @@ public class GbyServiceImpl implements GbyService{
         gbyDao.updatesyhygai(hj);
     }
    //c出租管理
+   @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> querychuzu(Integer wuyeid, String chuzuname) {
         return gbyDao.querychuzu(wuyeid,chuzuname);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> querychuzuxx(Integer id) {
         return gbyDao.querychuzuxx(id);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Public> querygongjiao() {
         return gbyDao.querygongjiao();
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Metro> queryditie() {
         return gbyDao.queryditie();
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Feature> querywuye() {
         return gbyDao.querywuye();
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Mating> querypeitao() {
         return gbyDao.querypeitao();
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Retailindustry> queryhangye() {
         return gbyDao.queryhangye();
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Storetype> querypumian() {
         return gbyDao.querypumian();
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Pavenmenttype> querypumian1() {
         return gbyDao.querypumian1();
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Situation> queryfangwu() {
         return gbyDao.queryfangwu();
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Orientation> querychaoxiang() {
         return gbyDao.querychaoxiang();
     }
 
+    @ReadOnlyConnection
     @Override
     public t_chuzugl queryByIdchuzu(Integer id) {
         return gbyDao.queryByIdchuzu(id);
@@ -220,6 +245,7 @@ public class GbyServiceImpl implements GbyService{
         gbyDao.updateqxchutuidw(ids);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> querysuoyou() {
         return gbyDao.querysuoyou();
@@ -230,6 +256,7 @@ public class GbyServiceImpl implements GbyService{
         gbyDao.deleteyuyue(id);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> queryChuShou() {
 
@@ -241,6 +268,7 @@ public class GbyServiceImpl implements GbyService{
         gbyDao.deleteyChuShou(id);
     }
 
+    @ReadOnlyConnection
     @Override
     public List<Map<String, Object>> queryChuZu() {
         return gbyDao.queryChuZu();
